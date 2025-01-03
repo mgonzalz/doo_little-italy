@@ -25,6 +25,12 @@ if os.getenv('VERCEL') is None and os.getenv('GITHUB_ACTIONS') is None:
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
+EDAMAM_NUTRITION_APP_ID= os.getenv('EDAMAM_NUTRITION_APP_ID', 'default-edamam-nutrition-app-id')
+EDAMAM_NUTRITION_APP_KEY= os.getenv('EDAMAM_NUTRITION_APP_KEY', 'default-edaam-nutrition-app-key')
+EDAMAM_FOOD_APP_ID = os.getenv('EDAMAM_FOOD_APP_ID', 'default-edamam-food-app-id')
+EDAMAM_FOOD_APP_KEY = os.getenv('EDAMAM_FOOD_APP_KEY', 'default-edamam-food-app-key')
+EDAMAM_RECIPE_APP_ID = os.getenv('EDAMAM_RECIPE_APP_ID', 'default-edamam-recipe-app-id')
+EDAMAM_RECIPE_APP_KEY = os.getenv('EDAMAM_RECIPE_APP_KEY', 'default-edamam-recipe-app-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
