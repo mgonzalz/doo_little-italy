@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # Local apps
+    'recipes',
 
     # Third-party apps
     'rest_framework', # Django REST framework - Nice clean views for API.
