@@ -7,9 +7,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         try:
-            data = fetch_recipes(query="pizza")
+            recipes = fetch_recipes(query="pizza", max_results=100)  # Fetch 100 pizza recipes.
 
-            recipes = data.get("hits", [])
             for recipe_data in recipes:
                 recipe = recipe_data.get("recipe", {})
 
