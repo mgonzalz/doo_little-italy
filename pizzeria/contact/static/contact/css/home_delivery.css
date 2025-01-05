@@ -27,9 +27,10 @@
 }
 
 .delivery-heading {
-    font-size: 2rem;
-    font-weight: bold;
     font-family: 'Quattrocento', serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
     margin-bottom: 20px;
 }
 

@@ -44,41 +44,117 @@
       </div>
     </div>
   </div>
-</div>
-</div>
-<!-- Formulario de contacto -->
-{% if 'ok' in request.GET %}
-<p><b>Su mensaje se ha enviado correctamente, en breve nos pondremos en contacto.</b></p>
-{% endif %}
-{% if 'fail' in request.GET %}
-<p><b>El mensaje no se ha enviado, por favor, inténtelo de nuevo.</b></p>
-{% endif %}
-<form action="" method="POST">
-  {% csrf_token %}
-<div class="form-group">
-  <label for="name">Nombre *</label>
-  <div class="input-group">
-    {{ form.name }}
+
+  <!-- Sección de Formulario de Contacto -->
+  <div class="contact-section">
+    <div class="contact-container">
+      <div class="form-column">
+        <form class="form-wrapper" action="" method="POST" style="margin: 0; padding: 0;">
+          {% csrf_token %}
+          <h2 class="restaurant-title">Contáctanos</h2>
+          <p class="restaurant-description">
+            También puede contactarnos a través de este formulario y le
+            responderemos lo antes posible.
+          </p>
+        </h2>
+        {% if 'ok' in request.GET %}
+          <!-- Mensaje de éxito -->
+          <div class="success-message" role="alert" style="width: 100%; margin-right: 0%;">
+            <div class="message-content" style="width: 100%; margin: 0%;">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/b89a6281c5f54ec4a4c08383eaaa44b4/1a364b878071d5fc1e50764ebc2391b2b6ed256d25e488fe53f7b57d1dd4dabb?apiKey=b89a6281c5f54ec4a4c08383eaaa44b4&"
+                class="status-icon"
+                alt="Indicador de éxito"
+              />
+              <div class="message-text">
+                Su mensaje se ha enviado correctamente.
+              </div>
+            </div>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/b89a6281c5f54ec4a4c08383eaaa44b4/841fc3e2f9f360364503678c493e988d0f9eb29cdbeeb8649abbaf5770d6b338?apiKey=b89a6281c5f54ec4a4c08383eaaa44b4&"
+              class="close-icon"
+              alt="Cerrar mensaje"
+              tabindex="0"
+              role="button"
+              onclick="this.parentElement.style.display='none';"
+            />
+          </div>
+          {% endif %}
+          <table style="width: 100%; border-spacing: 0; border-collapse: collapse;">
+            <tr>
+              <td style="width: 48%; padding: 0;">
+                <label for="name" class="visually-hidden">Nombre</label>
+                <input
+                  type="text"
+                  name="{{ form.name.name }}"
+                  value=""
+                  id="name"
+                  placeholder="Nombre"
+                  required
+                  class="form-input"
+                />
+                {{ form.name.errors }}
+              </td>
+              <td style="width: 10%; padding: 0;">
+                &nbsp;
+              </td>
+              <td style="width: 48%; padding: 0;">
+                <label for="email" class="visually-hidden">Email</label>
+                <input
+                  type="email"
+                  name="{{ form.email.name }}"
+                  value=""
+                  id="email"
+                  placeholder="Email"
+                  required
+                  class="form-input"
+                />
+                {{ form.email.errors }}
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" style="padding: 0;">
+                &nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" style="padding: 0; width: 100%;">
+                <label for="message" class="visually-hidden">Mensaje</label>
+                <textarea
+                  name="{{ form.content.name }}"
+                  id="message"
+                  placeholder="Mensaje"
+                  required
+                  class="message-input"
+                ></textarea>
+                {{ form.content.errors }}
+              </td>
+            </tr>
+            <tr style="padding: 0; width: 100%;">
+              <td colspan="2" style="padding: 0; width: 100%;">
+                <button
+                  type="submit"
+                  class="submit-button"
+                  style="width: 100%; font-family: 'Quattrocento', sans-serif; font-size: 20px;"
+                >
+                  Enviar
+                </button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div class="image-column">
+        <img
+          src="{% static 'contact/img/copas-vino.png' %}"
+          alt="Contact illustration"
+          class="contact-image"
+          loading="lazy"
+        />
+      </div>
+    </div>
   </div>
-  {{form.name.errors}}
-</div>
-<div class="form-group">
-  <label for="email">Email *</label>
-  <div class="input-group">
-    {{ form.email }}
-  </div>
-  {{form.email.errors}}
-</div>
-<div class="form-group">
-  <label for="message">Mensaje *</label>
-  <div class="input-group">
-    {{ form.content }}
-  </div>
-  {{form.content.errors}}
-</div>
-<div class="text-center">
-  <input type="submit" value="Enviar" class="btn btn-primary btn-block py-2">
-</div>
-</form>
 {% endblock %}
 

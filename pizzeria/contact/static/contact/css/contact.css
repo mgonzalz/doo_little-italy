@@ -1,6 +1,43 @@
-/* Estilos generales para la sección de información del negocio */
-.restaurant-section {
+/* ----------- Variables Globales ----------- */
+:root {
+    --background-light: rgba(253, 248, 244, 1);
+    --text-dark: rgba(33, 33, 33, 1);
+    --text-light: #fff;
+    --border-light: #e0e0e0;
+    --primary-red: rgba(255, 0, 0, 1);
+    --primary-red-hover: rgba(200, 0, 0, 1);
+    --font-heading: 'Quattrocento', sans-serif;
+    --font-body: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+/* ----------- Estilos Generales ----------- */
+body {
+    background-color: var(--background-light);
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+}
+
+.text-default {
+    color: var(--text-dark);
+}
+
+.text-bold {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.contact-heading {
     background-color: rgba(253, 248, 244, 1);
+    color: rgba(33, 33, 33, 1);
+    text-align: center;
+    padding: 38px 70px;
+    font: 400 64px/1 'Averia Serif Libre', sans-serif
+}
+
+/* ----------- Sección del Restaurante ----------- */
+.restaurant-section {
+    background-color: var(--background-light);
     padding: 50px 63px 50px 28px;
 }
 
@@ -12,15 +49,12 @@
 .image-column {
     display: flex;
     flex-direction: column;
-    line-height: normal;
     width: 50%;
-    margin-left: 0;
 }
 
 .restaurant-image {
     aspect-ratio: 2.05;
     object-fit: contain;
-    object-position: center;
     width: 100%;
     border-radius: 5px;
     margin-top: 5px;
@@ -30,7 +64,6 @@
 .info-column {
     display: flex;
     flex-direction: column;
-    line-height: normal;
     width: 50%;
     margin-left: 20px;
 }
@@ -38,104 +71,187 @@
 .info-container {
     display: flex;
     flex-direction: column;
-    color: rgba(33, 33, 33, 1);
+    color: var(--text-dark);
 }
 
 .restaurant-title {
-    align-self: start;
-    font: 700 40px/1 Quattrocento, sans-serif;
+    font: 700 40px/1 var(--font-heading);
 }
 
 .restaurant-description {
     margin-top: 4px;
-    font: 400 20px/28px Quattrocento Sans, Roboto, Helvetica, sans-serif;
+    font: 400 20px/28px var(--font-body);
 }
 
-.text-default {
-    color: rgba(33, 33, 33, 1);
-}
-
-.text-bold {
-    font-weight: 700;
-    color: rgba(33, 33, 33, 1);
-}
-
-/* Estilos para el encabezado principal */
-.contact-heading {
-    background: rgba(253, 248, 244, 1);
-    color: rgba(33, 33, 33, 1);
-    white-space: nowrap;
-    text-align: center;
-    padding: 38px 70px;
-    font: 400 64px/1 'Averia Serif Libre', Roboto, Helvetica, sans-serif;
-}
-
-/* Bloque principal de redes sociales */
-.social-media-container {
-    background-color: rgba(253, 248, 244, 1);
+/* ----------- Sección de Contacto ----------- */
+.contact-section {
+    background-color: #fdf8f4; /* Color de fondo claro */
+    padding: 50px 20px; /* Espaciado interno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    padding: 47px 40px 28px;
+    box-sizing: border-box;
 }
 
-/* Contenedor del contenido */
-.content-wrapper {
+.contact-container {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
     gap: 20px;
-    display: flex;
+    max-width: 1200px;
+    width: 100%;
 }
 
-/* Texto */
-.text-content {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 43%;
-    margin-left: 0;
-}
-
-.text-block {
+.form-column {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    font-family: 'Quattrocento Sans', sans-serif; /* Mantener fuente Quattrocento */
-    color: rgba(0, 0, 0, 1);
+    justify-content: center;
+    padding: 20px; /* Espaciado interno para mejorar la presentación */
 }
 
-.heading {
-    font-size: 35px;
-    font-weight: 700;
-    line-height: 1;
-    font: 700 40px/1 Quattrocento, sans-serif;
+.image-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Espaciado interno */
 }
 
-.description {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 28px;
-    margin: 11px 49px 0 0;
+.contact-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-/* Contenedor de imagen */
-.image-content {
+/* ----------- Estilos del Formulario ----------- */
+.form-wrapper {
     display: flex;
     flex-direction: column;
-    line-height: normal;
-    width: 57%;
-    margin-left: 20px;
+    gap: 20px;
+    width: 100%;
 }
 
-.social-icons {
-    aspect-ratio: 9.17;
-    object-fit: contain;
-    object-position: center;
-    width: 732px;
-    margin-top: 25px;
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Estilo base para los inputs y textarea */
+.form-input,
+.message-input {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background: #fcfcfc;
+    box-shadow: 0px 2px 2px rgba(33, 37, 41, 0.06), 0px 0px 1px rgba(33, 37, 41, 0.08);
+    padding: 10px 16px;
+    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif; /* Tipografía consistente */
+    font-size: 16px; /* Ajustar el tamaño del texto */
+    width: 100%; /* Todos los elementos ocuparán el ancho completo */
+}
+
+/* Ajuste específico para el textarea */
+.message-input {
+    height: 100px;
+}
+
+/* Alineación del botón con los inputs */
+.submit-button {
+    border-radius: 5px;
+    background-color: #d72638; /* Color principal */
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    width: 100%; /* Ancho igual al de los inputs */
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Separación con los campos superiores */
+}
+
+.submit-button:hover {
+    background-color: #b21e30; /* Color al pasar el cursor */
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%; /* Ancho completo de la tabla */
+    border-spacing: 20px; /* Espaciado entre las celdas */
+}
+
+td {
+    width: 50%; /* Los campos Nombre y Email ocupan el mismo ancho */
+}
+
+td[colspan="2"] {
+    width: 100%; /* Campo Mensaje ocupa el ancho completo */
+}
+
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.success-message {
+    border-radius: 8px;
+    background-color: #6B8E23;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    color: #fff;
+    font: 400 16px 'Inter', sans-serif;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     flex-grow: 1;
 }
 
-/* Estilos responsivos */
+.status-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.message-text {
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.close-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    margin-left: auto;
+}
+
+.close-icon:hover {
+    transform: scale(1.2);
+}
+
+
+/* ----------- Estilos Responsivos ----------- */
 @media (max-width: 991px) {
-    .social-media-container {
+    .contact-heading {
+        font-size: 40px;
         max-width: 100%;
-        padding: 0 20px;
+        white-space: initial;
+        padding: 20px;
     }
 
     .content-wrapper {
@@ -144,31 +260,47 @@
         gap: 0;
     }
 
-    .text-content {
+    .image-column,
+    .info-column{
         width: 100%;
     }
 
-    .text-block {
+    .contact-image {
         max-width: 100%;
         margin-top: 40px;
-    }
-
-    .heading {
-        max-width: 100%;
     }
 
     .description {
-        max-width: 100%;
         margin-right: 10px;
     }
 
-    .image-content {
-        width: 100%;
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .social-icons {
-        max-width: 100%;
-        margin-top: 40px;
+    .form-column, .image-column {
+        width: 100%;
+        padding: 0;
+    }
+
+    .contact-image {
+        margin-top: 20px;
+    }
+
+    .form-wrapper {
+        margin-top: 20px;
+    }
+
+    .input-group {
+        flex-direction: column; /* Apilar los inputs */
+    }
+
+    .message-input {
+        height: 80px; /* Reducir altura para pantallas pequeñas */
+    }
+
+    .submit-button {
+        padding: 10px 20px; /* Ajustar tamaño del botón */
     }
 }
-
