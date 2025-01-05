@@ -1,0 +1,174 @@
+/* Estilos generales para la sección de información del negocio */
+.restaurant-section {
+    background-color: rgba(253, 248, 244, 1);
+    padding: 50px 63px 50px 28px;
+}
+
+.content-wrapper {
+    gap: 20px;
+    display: flex;
+}
+
+.image-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 0;
+}
+
+.restaurant-image {
+    aspect-ratio: 2.05;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+    flex-grow: 1;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 20px;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    color: rgba(33, 33, 33, 1);
+}
+
+.restaurant-title {
+    align-self: start;
+    font: 700 40px/1 Quattrocento, sans-serif;
+}
+
+.restaurant-description {
+    margin-top: 4px;
+    font: 400 20px/28px Quattrocento Sans, Roboto, Helvetica, sans-serif;
+}
+
+.text-default {
+    color: rgba(33, 33, 33, 1);
+}
+
+.text-bold {
+    font-weight: 700;
+    color: rgba(33, 33, 33, 1);
+}
+
+/* Estilos para el encabezado principal */
+.contact-heading {
+    background: rgba(253, 248, 244, 1);
+    color: rgba(33, 33, 33, 1);
+    white-space: nowrap;
+    text-align: center;
+    padding: 38px 70px;
+    font: 400 64px/1 'Averia Serif Libre', Roboto, Helvetica, sans-serif;
+}
+
+/* Bloque principal de redes sociales */
+.social-media-container {
+    background-color: rgba(253, 248, 244, 1);
+    width: 100%;
+    padding: 47px 40px 28px;
+}
+
+/* Contenedor del contenido */
+.content-wrapper {
+    gap: 20px;
+    display: flex;
+}
+
+/* Texto */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 43%;
+    margin-left: 0;
+}
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quattrocento Sans', sans-serif; /* Mantener fuente Quattrocento */
+    color: rgba(0, 0, 0, 1);
+}
+
+.heading {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1;
+    font: 700 40px/1 Quattrocento, sans-serif;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 11px 49px 0 0;
+}
+
+/* Contenedor de imagen */
+.image-content {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 57%;
+    margin-left: 20px;
+}
+
+.social-icons {
+    aspect-ratio: 9.17;
+    object-fit: contain;
+    object-position: center;
+    width: 732px;
+    margin-top: 25px;
+    flex-grow: 1;
+}
+
+/* Estilos responsivos */
+@media (max-width: 991px) {
+    .social-media-container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .text-content {
+        width: 100%;
+    }
+
+    .text-block {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .heading {
+        max-width: 100%;
+    }
+
+    .description {
+        max-width: 100%;
+        margin-right: 10px;
+    }
+
+    .image-content {
+        width: 100%;
+    }
+
+    .social-icons {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+}
+

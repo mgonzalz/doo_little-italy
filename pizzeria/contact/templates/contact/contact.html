@@ -1,0 +1,72 @@
+{% extends 'contact/base.html' %}
+{% load static %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+
+<div class="contact-heading" role="heading" aria-level="1" tabindex="0">Contact</div>
+
+<!-- Sección de Información del Negocio -->
+<div class="restaurant-section">
+  <div class="content-wrapper">
+    <div class="image-column">
+      <img
+        loading="lazy"
+        src="{% static 'contact/img/pizza-jamon.png' %}"
+        class="restaurant-image"
+        alt="The Little Italy Restaurant Interior"
+      />
+    </div>
+    <div class="info-column">
+      <div class="info-container">
+        <h1 class="restaurant-title">Información del Negocio</h1>
+        <div class="restaurant-description">
+          <p class="text-default">
+            ¡Bienvenidos a The Little Italy, donde la tradición italiana se combina con el mejor sabor!
+          </p>
+          <ul>
+            <li><span class="text-bold">Ubicación:</span> <span class="text-default">Calle Italia, 123, Madrid, España.</span></li>
+            <li><span class="text-bold">Horario:</span>
+              <ul>
+                <li><span class="text-default">Lunes a Viernes: 12:00 p.m. - 11:00 p.m.</span></li>
+                <li><span class="text-default">Sábados y Domingos: 1:00 p.m. - 12:00 a.m.</span></li>
+              </ul>
+            </li>
+            <li><span class="text-bold">Teléfono:</span> <span class="text-default">+34 910 123 456</span></li>
+            <li><span class="text-bold">Correo Electrónico:</span> <span class="text-default"><a href="mailto:contacto@thelittleitaly.com" class="text-default">contacto@thelittleitaly.com</a></span></li>
+          </ul>
+          <p class="text-default">
+            Ven a disfrutar de nuestras deliciosas pizzas, preparadas con ingredientes frescos y auténticos. ¡Estamos deseando atenderte!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bloque de Redes Sociales -->
+<div class="social-media-container">
+  <div class="content-wrapper">
+    <div class="text-content">
+      <div class="text-block">
+        <h2 class="heading">¡Síguenos en nuestras Redes Sociales!</h2>
+        <p class="description">
+          Conéctate con The Little Italy y mantente al día con nuestras últimas
+          ofertas, promociones y novedades.
+        </p>
+      </div>
+    </div>
+    <div class="image-content">
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/b89a6281c5f54ec4a4c08383eaaa44b4/e01c213edf145e0db53a7ca29568c4bd992aea0d1de7c6a3f568e2e6d2fa251a?apiKey=b89a6281c5f54ec4a4c08383eaaa44b4&"
+        class="social-icons"
+        alt="Social media icons showing our presence on various platforms"
+      />
+    </div>
+  </div>
+</div>
+{% endblock %}
+
