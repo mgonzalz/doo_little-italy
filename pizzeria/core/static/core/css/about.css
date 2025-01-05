@@ -1,0 +1,189 @@
+/* ----------- Estilos Generales ----------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.about-heading {
+    background-color: rgba(253, 248, 244, 1);
+    color: rgba(33, 33, 33, 1);
+    text-align: center;
+    padding: 38px 70px;
+    font: 400 64px/1 'Averia Serif Libre', sans-serif;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+/* ----------- Estilos de la sección Historia ----------- */
+.history-section {
+    background-color: rgba(253, 248, 244, 1);
+    width: 100%;
+    padding: 20px 0;
+}
+
+.history-table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.text-cell {
+    padding: 20px 40px;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.history-title {
+    color: rgba(33, 33, 33, 1);
+    font: 700 40px/1 Quattrocento, sans-serif;
+    margin-bottom: 10px;
+}
+
+.history-description {
+    color: rgba(0, 0, 0, 1);
+    font: 400 20px/28px Quattrocento Sans, sans-serif;
+    margin-top: 9px;
+}
+
+.history-image {
+    width: 100%;
+    height: auto;
+}
+
+/* ----------- Estilos de la sección Filosofía ----------- */
+.philosophy-section {
+    background-color: rgba(253, 248, 244, 1);
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.philosophy-table {
+    width: 100%;
+    border-spacing: 20px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.philosophy-title {
+    font: 700 40px/1 Quattrocento, sans-serif;
+    margin-bottom: 20px;
+}
+
+.philosophy-description {
+    font: 400 20px/28px Quattrocento Sans, sans-serif;
+    color: rgba(0, 0, 0, 1);
+}
+
+.philosophy-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* ----------- Media Queries para Responsividad ----------- */
+@media (max-width: 991px) {
+    .about-heading {
+    font-size: 40px;
+    max-width: 100%;
+    white-space: initial;
+    padding: 20px;
+    }
+
+    .history-table,
+    .philosophy-table {
+    display: block;
+    }
+
+    .history-table td,
+    .philosophy-table td {
+    display: block;
+    width: 100%;
+    }
+
+    .history-image,
+    .philosophy-image {
+    margin-top: 20px;
+    }
+}
+/* ----------- Contenedor General ----------- */
+.policies-container {
+    background-color: rgba(253, 248, 244, 1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 55px 35px 131px;
+    box-sizing: border-box;
+    }
+    
+    /* ----------- Encabezados ----------- */
+    .header-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center; /* Alinea los encabezados al centro */
+    gap: 40px 20px;
+    margin-bottom: 40px;
+    }
+    
+    .header-title {
+    font: 700 36px/1.2 Quattrocento, sans-serif;
+    color: rgba(33, 33, 33, 1);
+    text-align: center;
+    }
+    
+    .subheading {
+    font: 400 20px/1.5 Quattrocento, sans-serif;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+    margin-top: 10px;
+    }
+    
+    /* ----------- Contenido ----------- */
+    .content-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    }
+    
+    .policy-col {
+    flex: 1 1 30%;
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    color: rgba(0, 0, 0, 1);
+    text-align: justify;
+    }
+    
+    .policy-text,
+    .terms-text,
+    .cookies-text {
+    font: 400 15px/21px Quattrocento Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    margin-top: 12px;
+    }
+    
+    /* ----------- Media Queries para Responsividad ----------- */
+    @media (max-width: 991px) {
+    .policies-container {
+        padding: 20px;
+    }
+    
+    .header-section {
+        gap: 20px;
+    }
+    
+    .content-section {
+        flex-direction: column;
+    }
+    
+    .policy-col {
+        width: 100%;
+    }
+    }
+  

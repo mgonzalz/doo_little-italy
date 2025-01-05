@@ -1,0 +1,118 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/about.css' %}">
+
+
+<!-- Encabezado principal -->
+<div class="about-heading" role="heading" aria-level="1" tabindex="0">About Us</div>
+
+<!-- Sección de Historia -->
+<div class="history-section">
+<table class="history-table">
+    <tr>
+    <td class="text-cell" style="width: 50%;">
+        <h2 class="history-title">Historia de la Empresa</h2>
+        <p class="history-description">
+        <span class="italic-text">The Little Italy</span>
+        nació con el objetivo de ofrecer el auténtico sabor de Italia en cada
+        pizza. Fundada en 1999, nos enorgullece utilizar
+        ingredientes frescos y de calidad para crear platos que transmiten la
+        tradición italiana. Cada pizza que servimos refleja nuestra pasión por
+        la buena comida y la autenticidad. ¡Gracias por ser parte de nuestra
+        historia y por acompañarnos en este delicioso viaje!
+        </p>
+    </td>
+    <td class="image-cell" style="width: 50%;">
+        <img
+        loading="lazy"
+        src="{% static 'core/img/restaurante.png' %}"
+        class="history-image"
+        alt="The Little Italy restaurant history"
+        />
+    </td>
+    </tr>
+</table>
+</div>
+
+<!-- Sección de Filosofía -->
+<div class="philosophy-section">
+<table class="philosophy-table">
+    <tr>
+    <td class="image-cell" style="width: 40%;">
+        <img
+        loading="lazy"
+        src="{% static 'core/img/empleado.png' %}"
+        class="philosophy-image"
+        alt="The Little Italy restaurant interior or culinary scene"
+        />
+    </td>
+    <td class="text-cell" style="width: 60%;">
+        <h2 class="philosophy-title">Filosofía de Trabajo</h2>
+        <p class="philosophy-description">
+        En
+        <span class="italic-text">The Little Italy</span>
+        , nuestra filosofía de trabajo se basa en la dedicación, el respeto
+        por las tradiciones y el compromiso con la calidad. Creemos que una
+        pizza excepcional comienza con los mejores ingredientes y una
+        preparación cuidadosa. Cada miembro de nuestro equipo, desde la cocina
+        hasta el servicio, comparte el mismo objetivo: ofrecerte una
+        experiencia auténtica y memorable.
+        <br />
+        Valoramos la atención al detalle, la creatividad en cada receta y,
+        sobre todo, el trato cercano con nuestros clientes. Nuestra misión es
+        que cada visita a
+        <span class="italic-text">The Little Italy</span>
+        sea una celebración del verdadero sabor italiano, acompañada de un
+        ambiente cálido y acogedor.
+        </p>
+    </td>
+    </tr>
+</table>
+</div>
+
+<div class="policies-container">
+    <!-- Encabezado Principal -->
+    <div class="header-section">
+    <div>
+        <h1 class="header-title">Policies</h1>
+    </div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="content-section">
+    <div class="policy-col">
+        <h2 class="subheading">Privacy Policy</h2>
+        <p class="policy-text">
+        En <span class="italic-text">The Little Italy</span>, respetamos tu privacidad y protegemos tus datos personales.
+        Solo utilizamos la información proporcionada para procesar pedidos y mejorar tu experiencia.
+        No compartimos tus datos con terceros, salvo que sea necesario por ley.
+        Al usar nuestro sitio web, aceptas nuestra política de privacidad.
+        </p>
+    </div>
+    <div class="policy-col">
+        <h2 class="subheading">Términos y Condiciones</h2>
+        <p class="terms-text">
+        Al usar nuestro sitio web, aceptas cumplir con nuestras políticas y condiciones de uso.
+        Nos reservamos el derecho de modificar el contenido y los precios sin previo aviso.
+        La disponibilidad de los productos puede variar.
+        No nos hacemos responsables de errores en la información proporcionada.
+        Al realizar un pedido, aceptas nuestros términos de pago y entrega.
+        </p>
+    </div>
+    <div class="policy-col">
+        <h2 class="subheading">Política de Cookies</h2>
+        <p class="cookies-text">
+        En <span class="italic-text">The Little Italy</span>, utilizamos cookies para mejorar tu experiencia en nuestro sitio web,
+        analizar el tráfico y personalizar contenido. Al navegar, aceptas el uso de cookies según nuestra política.
+        Puedes modificar la configuración de cookies en cualquier momento.
+        No compartimos tus datos con terceros sin tu consentimiento.
+        Para más información, consulta nuestra política completa de privacidad.
+        </p>
+    </div>
+    </div>
+</div>
+{% endblock %}
