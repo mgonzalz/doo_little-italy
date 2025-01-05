@@ -4,5 +4,6 @@ from . import views
 
 # URL configuration for pizzeria project (core application).
 urlpatterns = [
+    path('', views.home, name='home'),
     path('about/', views.about, name='about'),
 ]

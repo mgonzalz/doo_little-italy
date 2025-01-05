@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.home-heading {
+    background-color: rgba(253, 248, 244, 1);
+    color: rgba(33, 33, 33, 1);
+    text-align: center;
+    padding: 38px 70px;
+    font: 400 64px/1 'Averia Serif Libre', sans-serif;
+}
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 700px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 134px 0 217px; /* Remove horizontal padding */
+    font: 500 18px Roboto, sans-serif;
+    margin: 0; /* Ensure no external margins */
+    box-sizing: border-box; /* Include padding in dimensions */
+    overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.restaurant-name {
+    font: 400 64px/1 'Averia Serif Libre', -apple-system, Roboto, Helvetica, sans-serif;
+    color: #fff;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+}
+
+.action-button {
+    width: 281px;
+    max-width: 100%;
+    min-height: 64px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #ff0000;
+    font: 700 20px/1.2 Quattrocento, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #e60000;
+}
+
+.menu-button {
+    margin-top: 52px;
+}
+
+.book-button {
+    margin-top: 25px;
+}
+
+.delivery-button {
+    margin-top: 27px;
+}
+
+@media (max-width: 991px) {
+    .hero-section {
+    padding: 100px 20px; /* Add minimal padding for small screens */
+    }
+
+    .restaurant-name {
+    font-size: 40px;
+    }
+
+    .action-button {
+    padding: 0 20px;
+    }
+
+    .menu-button {
+    margin-top: 40px;
+    }
+}
+
+
+/* Content */
+table {
+    width: 100%;
+    border-spacing: 0;
+    margin: 0; /* Sin márgenes */
+    padding: 0; /* Sin relleno */
+    table-layout: fixed; /* Mantener el tamaño de las celdas */
+    background-color: #FDF8F4;
+}
+
+td {
+    vertical-align: top;
+}
+
+.image-cell img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-cell {
+    padding: 40px; /* Margen al texto */
+    font-family: 'Quattrocento', serif;
+    color: rgba(33, 33, 33, 1);
+}
+
+.restaurant-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-align: left; /* Alinear título a la izquierda */
+}
+
+.restaurant-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify; /* Justificar el texto */
+}
+
+/* Estilos responsivos */
+@media (max-width: 991px) {
+    .image-cell,
+    .text-cell {
+    display: block;
+    width: 100%;
+    }
+
+    .image-cell img {
+    margin-bottom: 20px; /* Espaciado entre imagen y texto en dispositivos pequeños */
+    }
+
+    .text-cell {
+    padding: 20px; /* Reducir margen en pantallas pequeñas */
+    }
+
+    .restaurant-title {
+    font-size: 2rem; /* Ajustar tamaño del título en pantallas pequeñas */
+    }
+
+    .restaurant-description {
+    font-size: 1rem; /* Reducir tamaño del texto */
+    }
+}
+
+/* Footer */
+.features-footer {
+    background-color: #FDF8F4;
+    padding: 40px 80px;
+    text-align: center;
+    font-family: 'Quattrocento', serif;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(33, 33, 33, 1);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: rgba(100, 100, 100, 1);
+    text-align: center;
+}
+
+@media (max-width: 991px) {
+    .features-grid {
+    flex-direction: column;
+    gap: 20px;
+    }
+
+    .feature-item {
+    text-align: center;
+    }
+}

@@ -1,0 +1,94 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+
+<div class="hero-section">
+    <img
+        class="hero-background"
+        src="{% static 'core/img/header-pasta.png' %}"
+        alt="Little Italy Restaurant Ambiance"
+        loading="lazy"
+    />
+    <div class="content-wrapper">
+        <h1 class="restaurant-name">Little Italy</h1>
+        <a href="#menu" class="action-button menu-button" tabindex="0">Menu</a>
+        <a href="tel:+34910123456" class="action-button book-button" tabindex="0">Book Table</a>
+        <a href="{% url 'home-service' %}" class="action-button delivery-button" tabindex="0">Home Delivery Service</a>
+    </div>
+</div>
+
+<table>
+    <tr>
+    <td class="image-cell">
+        <img
+        src="{% static 'core/img/pasta.png' %}"
+        alt="Plato de comida italiana"
+        />
+    </td>
+    <td class="text-cell">
+        <h1 class="restaurant-title">Restaurante Italiano Pizzería & Trattoría</h1>
+        <p class="restaurant-description">
+        Nuestra cocina se basa en productos frescos locales y en ingredientes
+        directamente importados desde Italia. Tenemos una amplia carta destacando la
+        Lasagna Parmigiana, la Ensalada Caprese y los exquisitos sabores como
+        Canelones de Perdíz o Spaguetti Negro con Lubina.
+        </p>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="text-cell">
+        <h1 class="restaurant-title">Restaurante Familiar</h1>
+        <p class="restaurant-description">
+        Nuestro restaurante está ubicado en un lugar accesible y céntrico,
+        diseñado para ofrecer comodidad y estilo a nuestros clientes. Con un
+        ambiente moderno de inspiración industrial, techos altos y grandes
+        ventanales, es el espacio perfecto para cualquier ocasión.
+        </p>
+    </td>
+    <td class="image-cell">
+        <img
+        src="{% static 'core/img/pizzas.png' %}"
+        alt="Interior del restaurante"
+        />
+    </td>
+    </tr>
+</table>
+
+<div class="features-footer">
+    <div class="features-grid">
+    <div class="feature-item">
+        <h3 class="feature-title">AMBIENTE FAMILIAR</h3>
+        <p class="feature-description">
+        El restaurante está dotado con espacios para familias, disponiendo de una zona infantil con entretenimiento.
+        </p>
+    </div>
+    <div class="feature-item">
+        <h3 class="feature-title">AMPLIA CARTA</h3>
+        <p class="feature-description">
+        Disponemos de una amplia y variada carta con ingredientes italianos así como menú infantil para los más pequeños.
+        </p>
+    </div>
+    <div class="feature-item">
+        <h3 class="feature-title">A DOMICILIO</h3>
+        <p class="feature-description">
+        Servicio a domicilio llamando directamente al local 910 123 456 o en las plataformas Just Eat, Uber Eats y Glovo.
+        </p>
+    </div>
+    <div class="feature-item">
+        <h3 class="feature-title">CHEQUES GOURMET</h3>
+        <p class="feature-description">
+        Además de las tradicionales formas de pago, puede pagar en el restaurante con cheques Gourmet.
+        </p>
+    </div>
+    </div>
+    <div class="footer-bottom">
+    © 2010 — 2020 &nbsp;&nbsp; Privacy — Terms
+    </div>
+</div>
+
+{% endblock %}

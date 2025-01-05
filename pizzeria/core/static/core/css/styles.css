@@ -1,6 +1,6 @@
 /* Variables principales */
 :root {
-    --primary-red: #D72638;
+    --primary-red: rgba(255, 0, 0, 1);
     --background-dark: #212121;
     --text-light: #FFFFFF;
     --font-logo: 'Averia Serif Libre', serif;
@@ -83,7 +83,7 @@
   }
   
   .register-button:hover {
-    background-color: #b71c2c; /* Rojo más oscuro */
+    background-color: rgba(255, 0, 0, 1) /* Rojo más oscuro */
   }
   
   /* Responsividad */

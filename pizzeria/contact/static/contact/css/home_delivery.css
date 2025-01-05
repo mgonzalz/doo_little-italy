@@ -1,4 +1,12 @@
 /* Sección principal */
+.home-heading {
+    background-color: rgba(253, 248, 244, 1);
+    color: rgba(33, 33, 33, 1);
+    text-align: center;
+    padding: 38px 70px;
+    font: 400 64px/1 'Averia Serif Libre', sans-serif;
+}
+
 .delivery-section {
     background-color: rgba(253, 248, 244, 1);
     width: 100%;

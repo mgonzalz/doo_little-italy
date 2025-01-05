@@ -5,7 +5,7 @@
     --text-light: #fff;
     --border-light: #e0e0e0;
     --primary-red: rgba(255, 0, 0, 1);
-    --primary-red-hover: rgba(200, 0, 0, 1);
+    --primary-red-hover: rgba(255, 0, 0, 1);
     --font-heading: 'Quattrocento', sans-serif;
     --font-body: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
 }
@@ -160,7 +160,7 @@ body {
 /* Alineación del botón con los inputs */
 .submit-button {
     border-radius: 5px;
-    background-color: #d72638; /* Color principal */
+    background-color: rgba(255, 0, 0, 1); /* Color principal */
     color: #fff;
     font-weight: bold;
     text-align: center;
@@ -173,7 +173,7 @@ body {
 }
 
 .submit-button:hover {
-    background-color: #b21e30; /* Color al pasar el cursor */
+    background-color: rgba(255, 0, 0, 1); /* Color al pasar el cursor */
 }
 
 /* Estilos para la tabla */
