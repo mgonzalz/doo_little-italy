@@ -1,0 +1,76 @@
+{% extends 'contact/base.html' %}
+{% load static %}
+
+{% block title %}Home Delivery Service{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'contact/css/home_delivery.css' %}">
+
+
+    <!-- Sección de entrega a domicilio -->
+    <div class="delivery-section">
+    <div class="delivery-row">
+    <div class="content-cell">
+        <h2 class="delivery-heading">Servicio a Domicilio</h2>
+        <p class="delivery-description">
+        También puedes disfrutar de nuestra comida desde tu propia casa.
+        Puedes llamar directamente al restaurante, o bien, hacerlo por una de
+        las plataformas de entrega a domicilio.
+        </p>
+        <a href="tel:+34910123456" class="call-button">LLAMAR RESTAURANTE</a>
+    </div>
+    <div class="image-cell">
+        <img
+        src="{% static 'contact/img/delivery.png' %}"
+        alt="Servicio a domicilio illustration"
+        class="delivery-image"
+        />
+    </div>
+    </div>
+    </div>
+
+    <!-- Sección de redes sociales -->
+    <div class="social-media-section">
+    <div class="social-media-wrapper">
+    <div class="social-media-title">TAMBIÉN ESTAMOS EN</div>
+    <div class="social-media-grid">
+        <!-- Glovo -->
+        <div class="social-media-item">
+        <a href="https://www.glovoapp.com" target="_blank" rel="noopener noreferrer">
+            <img
+            loading="lazy"
+            src="{% static 'contact/img/glovo.png' %}"
+            class="social-media-image"
+            alt="Glovo"
+            />
+        </a>
+        </div>
+
+        <!-- Just Eat -->
+        <div class="social-media-item">
+        <a href="https://www.just-eat.es" target="_blank" rel="noopener noreferrer">
+            <img
+            loading="lazy"
+            src="{% static 'contact/img/just-eat.png' %}"
+            class="social-media-image"
+            alt="Just Eat"
+            />
+        </a>
+        </div>
+
+        <!-- Uber Eats -->
+        <div class="social-media-item">
+        <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">
+            <img
+            loading="lazy"
+            src="{% static 'contact/img/uber.png' %}"
+            class="social-media-image"
+            alt="Uber Eats"
+            />
+        </a>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+

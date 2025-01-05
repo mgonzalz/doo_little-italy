@@ -1,0 +1,135 @@
+/* Sección principal */
+.delivery-section {
+    background-color: rgba(253, 248, 244, 1);
+    width: 100%;
+    height: 534px; /* Fija la altura */
+    display: table;
+    table-layout: fixed;
+}
+
+.delivery-row {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+
+.content-cell,
+.image-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.content-cell {
+    width: 50%;
+    padding: 20px;
+    font-family: 'Quattrocento Sans', sans-serif;
+    color: rgba(33, 33, 33, 1);
+}
+
+.delivery-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Quattrocento', serif;
+    margin-bottom: 20px;
+}
+
+.delivery-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.call-button {
+    display: inline-block;
+    background-color: rgba(255, 0, 0, 1);
+    color: #fff;
+    padding: 12px 24px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.call-button:hover {
+    background-color: rgba(200, 0, 0, 1);
+}
+
+.image-cell {
+    width: 50%;
+    padding: 0;
+}
+
+.delivery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Sección de redes sociales */
+.social-media-section {
+    background: rgba(253, 248, 244, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 65px 0;
+    width: 100%;
+}
+
+.social-media-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-media-title {
+    color: rgba(0, 0, 0, 1);
+    font: 400 32px 'Quattrocento', serif;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.social-media-grid {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-media-item {
+    flex: 1;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media-image {
+    aspect-ratio: 1;
+    width: 150px;
+    max-width: 100%;
+}
+
+@media (max-width: 991px) {
+    .social-media-section {
+    padding: 30px 10px;
+    }
+
+    .social-media-grid {
+    gap: 10px;
+    flex-wrap: wrap;
+    }
+
+    .social-media-item {
+    max-width: 150px;
+    }
+
+    .social-media-image {
+    width: 120px;
+    }
+    }

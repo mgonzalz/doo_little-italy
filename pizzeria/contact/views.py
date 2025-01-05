@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def contact(request):
     return render(request, 'contact/contact.html')
+
+def home_service(request):
+    return render(request, 'contact/home-service.html')
