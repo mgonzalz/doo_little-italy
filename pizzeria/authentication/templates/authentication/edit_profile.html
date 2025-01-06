@@ -6,13 +6,13 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'authentication/css/login.css' %}">
 <style>
-    /* Estilo del cuerpo */
+    /* Fondo general */
     body {
         height: auto;
         overflow-y: auto;
         margin: 0;
         padding: 0;
-        background-color: #fff8f4; /* Fondo general */
+        background-color: #fff8f4;
     }
 
     /* Centrar el contenedor principal */
@@ -20,14 +20,14 @@
         min-height: 100vh;
         padding: 2rem 1rem;
         display: flex;
-        justify-content: center; /* Centrado horizontal */
-        align-items: center; /* Centrado vertical */
+        justify-content: center;
+        align-items: center;
     }
 
-    /* Estilo del cuadro blanco */
+    /* Cuadro principal */
     .login-container {
         width: 100%;
-        max-width: 400px;
+        max-width: 900px; /* Más ancho para acomodar dos columnas */
         background-color: #ffffff;
         padding: 2rem;
         border-radius: 10px;
@@ -40,24 +40,30 @@
         color: #000;
         margin-bottom: 1.5rem;
         font-weight: bold;
+        text-align: center;
     }
 
-    /* Cambios en los campos del formulario */
+    /* Contenedor de dos columnas */
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+        gap: 2rem; /* Espacio entre columnas */
+    }
+
+    /* Cada campo del formulario */
     .form-group {
-        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
         text-align: left;
     }
 
     .form-label {
-        display: block;
-        margin-bottom: 0.5rem;
         font-weight: bold;
+        margin-bottom: 0.5rem;
         font-size: 1rem;
     }
 
-    /* Ajuste del ancho de los campos del formulario */
     .form-input {
-        width: 90%; /* Cambio aquí: reducido al 90% del cuadro */
         border-radius: 8px;
         border: 1px solid #e0e0e0;
         background: #fcfcfc;
@@ -74,6 +80,7 @@
         box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
     }
 
+    /* Botón */
     .login-button {
         width: 100%;
         border-radius: 5px;
@@ -86,23 +93,22 @@
         font-size: 1.125rem;
         font-weight: bold;
         transition: background-color 0.2s ease;
+        margin-top: 1.5rem;
     }
 
     .login-button:hover {
         background-color: #e60000;
     }
 
-    .login-button:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+    /* Enlace para volver al Home */
+    .bottom-spacer {
+        margin-top: 1.5rem;
     }
 
     .forgot-password-link {
         color: rgba(0, 128, 0, 1);
         font-weight: 400;
         text-decoration: none;
-        display: inline-block;
-        margin-top: 1rem;
         font-size: 0.95rem;
     }
 
@@ -111,18 +117,14 @@
         color: rgba(0, 100, 0, 1);
     }
 
-    .bottom-spacer {
-        margin-top: 2rem;
-    }
-
+    /* Responsividad para pantallas pequeñas */
     @media (max-width: 768px) {
-        .login-container {
-            margin: 0;
-            padding: 1.5rem;
+        .form-grid {
+            grid-template-columns: 1fr; /* Las columnas se apilan */
         }
 
-        .login-main {
-            padding: 1rem;
+        .login-container {
+            padding: 1.5rem;
         }
     }
 </style>
@@ -138,106 +140,110 @@
             {% endfor %}
         {% endif %}
 
-        <!-- Campos del formulario -->
-        <div class="form-group">
-            <label for="username" class="form-label">Nombre:</label>
-            <input 
-                type="text" 
-                id="username" 
-                name="username" 
-                class="form-input" 
-                value="{{ user.username }}" 
-                placeholder="Ingresa tu nombre" 
-                required>
-        </div>
-
-        <div class="form-group">
-            <label for="email" class="form-label">Email:</label>
-            <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                class="form-input" 
-                value="{{ user.email }}" 
-                placeholder="Ingresa tu email" 
-                required>
-        </div>
-
-        <div class="form-group">
-            <label for="password" class="form-label">Contraseña:</label>
-            <input 
-                type="password" 
-                id="password" 
-                name="password" 
-                class="form-input" 
-                placeholder="Ingresa tu nueva contraseña (opcional)">
-        </div>
-
-        <div class="form-group">
-            <label for="phone_number" class="form-label">Teléfono:</label>
-            <input 
-                type="text" 
-                id="phone_number" 
-                name="phone_number" 
-                class="form-input" 
-                value="{{ user.profile.phone_number }}" 
-                placeholder="Ingresa tu número de teléfono">
-        </div>
-
-        <div class="form-group">
-            <label for="address" class="form-label">Dirección:</label>
-            <input 
-                type="text" 
-                id="address" 
-                name="address" 
-                class="form-input" 
-                value="{{ user.profile.address }}" 
-                placeholder="Ingresa tu dirección">
-        </div>
-
-        <div class="form-group">
-            <label for="city" class="form-label">Ciudad:</label>
-            <input 
-                type="text" 
-                id="city" 
-                name="city" 
-                class="form-input" 
-                value="{{ user.profile.city }}" 
-                placeholder="Ingresa tu ciudad">
-        </div>
-
-        <div class="form-group">
-            <label for="state" class="form-label">Estado:</label>
-            <input 
-                type="text" 
-                id="state" 
-                name="state" 
-                class="form-input" 
-                value="{{ user.profile.state }}" 
-                placeholder="Ingresa tu estado">
-        </div>
-
-        <div class="form-group">
-            <label for="zip_code" class="form-label">Código Postal:</label>
-            <input 
-                type="text" 
-                id="zip_code" 
-                name="zip_code" 
-                class="form-input" 
-                value="{{ user.profile.zip_code }}" 
-                placeholder="Ingresa tu código postal">
-        </div>
+        <!-- Contenedor en forma de grid (dos columnas) -->
+        <div class="form-grid">
+            <!-- Columna izquierda (con nombre, email, contraseña y teléfono) -->
+            <div>
+                <div class="form-group">
+                    <label for="username" class="form-label">Nombre:</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        class="form-input" 
+                        value="{{ user.username|default:'' }}" 
+                        placeholder="Ingresa tu nombre" 
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email:</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        value="{{ user.email|default:'' }}" 
+                        placeholder="Ingresa tu email" 
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Contraseña:</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input" 
+                        placeholder="Nueva contraseña (opcional)">
+                </div>
+                <div class="form-group">
+                    <label for="phone_number" class="form-label">Teléfono:</label>
+                    <input 
+                        type="text" 
+                        id="phone_number" 
+                        name="phone_number" 
+                        class="form-input" 
+                        value="{{ user.profile.phone_number|default:'' }}" 
+                        placeholder="Número de teléfono">
+                </div>
+            </div>
+        
+            <!-- Columna derecha (con dirección, ciudad, estado y código postal) -->
+            <div>
+                <div class="form-group">
+                    <label for="address" class="form-label">Dirección:</label>
+                    <input 
+                        type="text" 
+                        id="address" 
+                        name="address" 
+                        class="form-input" 
+                        value="{{ user.profile.address|default:'' }}" 
+                        placeholder="Dirección">
+                </div>
+                <div class="form-group">
+                    <label for="city" class="form-label">Ciudad:</label>
+                    <input 
+                        type="text" 
+                        id="city" 
+                        name="city" 
+                        class="form-input" 
+                        value="{{ user.profile.city|default:'' }}" 
+                        placeholder="Ciudad">
+                </div>
+                <div class="form-group">
+                    <label for="state" class="form-label">Estado:</label>
+                    <input 
+                        type="text" 
+                        id="state" 
+                        name="state" 
+                        class="form-input" 
+                        value="{{ user.profile.state|default:'' }}" 
+                        placeholder="Estado">
+                </div>
+                <div class="form-group">
+                    <label for="zip_code" class="form-label">Código Postal:</label>
+                    <input 
+                        type="text" 
+                        id="zip_code" 
+                        name="zip_code" 
+                        class="form-input" 
+                        value="{{ user.profile.zip_code|default:'' }}" 
+                        placeholder="Código Postal">
+                </div>
+            </div>
+        </div>        
 
         <!-- Botón para guardar cambios -->
         <button type="submit" class="login-button">Guardar Cambios</button>
 
-        <!-- Enlace al Home -->
+        <!-- Enlace para volver al Home -->
         <div class="bottom-spacer">
             <a href="{% url 'home' %}" class="forgot-password-link">Volver al Home</a>
         </div>
     </form>
 </main>
 {% endblock %}
+
+
 
 
 
