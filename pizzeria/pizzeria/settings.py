@@ -146,3 +146,16 @@ EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.mailtrap.io')
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'default-email-host-user')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'default-email-host-password')
 EMAIL_PORT = os.getenv('EMAIL_PORT', 2525)
+
+
+# Django REST framework settings.
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
