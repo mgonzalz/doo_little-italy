@@ -39,6 +39,10 @@ def edit_profile(request):
         email = request.POST.get('email', '').strip()
         password = request.POST.get('password', '').strip()
         phone_number = request.POST.get('phone_number', '').strip()
+        address = request.POST.get('address', '').strip()
+        city = request.POST.get('city', '').strip()
+        state = request.POST.get('state', '').strip()
+        zip_code = request.POST.get('zip_code', '').strip()
 
         # Actualizar datos del usuario.
         user.username = username
@@ -49,6 +53,10 @@ def edit_profile(request):
         user.save()
 
         profile.phone_number = phone_number
+        profile.city = city
+        profile.address = address
+        profile.state = state
+        profile.zip_code = zip_code
         profile.save()
 
         messages.success(request, '¡Tu perfil se ha actualizado correctamente!')

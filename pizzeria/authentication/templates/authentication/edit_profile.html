@@ -59,6 +59,38 @@
             value="{{ user.profile.phone_number }}" 
             placeholder="Ingresa tu número de teléfono">
         <br><br>
+        <label for="address">Address:</label>
+        <input 
+            type="text" 
+            id="address" 
+            name="address" 
+            value="{{ user.profile.address }}" 
+            placeholder="Ingresa tu dirección">
+        <br><br>
+        <label for="city">City:</label>
+        <input 
+            type="text" 
+            id="city" 
+            name="city" 
+            value="{{ user.profile.city }}" 
+            placeholder="Ingresa tu ciudad">
+        <br><br>
+        <label for="state">State:</label>
+        <input 
+            type="text" 
+            id="state" 
+            name="state" 
+            value="{{ user.profile.state }}" 
+            placeholder="Ingresa tu estado">
+        <br><br>
+        <label for="zip_code">Zip Code:</label>
+        <input 
+            type="text" 
+            id="zip_code" 
+            name="zip_code" 
+            value="{{ user.profile.zip_code }}"
+            placeholder="Ingresa tu código postal">
+        <br><br>
 
         <button type="submit">Guardar Cambios</button>
     </form>
