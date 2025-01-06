@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+</head>
+<body>
+    <h1>Editar Perfil</h1>
+
+    <!-- Mostrar mensaje de éxito si se guardaron los cambios -->
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Formulario para editar datos del usuario -->
+    <form method="post">
+        {% csrf_token %}
+
+        <!-- Campo para editar el nombre -->
+        <label for="username">Nombre:</label>
+        <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            value="{{ user.username }}" 
+            placeholder="Ingresa tu nombre" 
+            required>
+        <br><br>
+
+        <!-- Campo para editar el email -->
+        <label for="email">Email:</label>
+        <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            value="{{ user.email }}" 
+            placeholder="Ingresa tu email" 
+            required>
+        <br><br>
+
+        <!-- Campo para editar la contraseña -->
+        <label for="password">Contraseña:</label>
+        <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Ingresa tu nueva contraseña (opcional)">
+        <br><br>
+
+        <!-- Campo para editar el número de teléfono -->
+        <label for="phone_number">Teléfono:</label>
+        <input 
+            type="text" 
+            id="phone_number" 
+            name="phone_number" 
+            value="{{ user.profile.phone_number }}" 
+            placeholder="Ingresa tu número de teléfono">
+        <br><br>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+
+    <p><a href="{% url 'home' %}">Volver al Home</a></p>
+</body>
+</html>
