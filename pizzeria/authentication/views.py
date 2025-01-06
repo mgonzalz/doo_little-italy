@@ -112,3 +112,37 @@ def user_login(request):
             messages.error(request, 'Correo electrónico o contraseña incorrectos.')
 
     return render(request, 'authentication/login.html')
+
+
+def change_password(request):
+    if request.method == 'POST':
+        email = request.POST.get('email', '').strip()
+        phone_number = request.POST.get('phone_number', '').strip()
+        new_password = request.POST.get('new_password', '').strip()
+        confirm_password = request.POST.get('confirm_password', '').strip()
+
+        # Validar que las contraseñas coincidan
+        if new_password != confirm_password:
+            messages.error(request, 'Las contraseñas no coinciden.')
+            return render(request, 'authentication/change_password.html')
+
+        try:
+            # Buscar al usuario por email
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            messages.error(request, 'Correo electrónico no registrado.')
+            return render(request, 'authentication/change_password.html')
+
+        # Verificar el número de teléfono
+        if user.profile.phone_number != phone_number:
+            messages.error(request, 'El número de teléfono no coincide con el registrado.')
+            return render(request, 'authentication/change_password.html')
+
+        # Actualizar la contraseña
+        user.set_password(new_password)
+        user.save()
+        update_session_auth_hash(request, user)  # Mantener la sesión activa si el usuario está logueado.
+        messages.success(request, 'Contraseña cambiada exitosamente. Ahora puedes iniciar sesión.')
+        return redirect('login')
+
+    return render(request, 'authentication/change_password.html')

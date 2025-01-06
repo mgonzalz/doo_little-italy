@@ -40,7 +40,10 @@
                     placeholder="Ingresa tu contraseña" 
                     required>
             </div>
-
+            <!-- Enlace para "Forgot your password?" -->
+            <div class="form-group">
+                <a href="{% url 'change-password' %}" class="forgot-password-link">Forgot your password?</a>
+            </div>
             <!-- Botón de envío -->
             <button type="submit" class="login-button">Log in</button>
         </form>
