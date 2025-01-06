@@ -1,60 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-</head>
-<body>
-    <h1>Registro</h1>
+{% extends 'core/base.html' %}
+{% load static %}
 
-    <!-- Mostrar mensajes de error o éxito -->
-    {% if messages %}
-        {% for message in messages %}
-            <p style="color: green;">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+{% block title %}Register{% endblock %}
 
-    <!-- Formulario de Registro -->
-    <form method="post">
+{% block content %}
+<link rel="stylesheet" href="{% static 'authentication/css/login.css' %}"><main class="login-main">
+    <form method="post" class="login-container">
         {% csrf_token %}
+        <h1 class="login-title">Sign up for Little Italy</h1>
 
-        <label for="username">Nombre de Usuario:</label>
-        <input 
-            type="text" 
-            id="username" 
-            name="username" 
-            placeholder="Ingresa tu nombre de usuario" 
-            required>
-        <br><br>
+        <!-- Mostrar mensajes de error o éxito -->
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
 
-        <label for="email">Email:</label>
-        <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder="Ingresa tu email" 
-            required>
-        <br><br>
+        <!-- Campo de Nombre de Usuario -->
+        <div class="form-group">
+            <label for="username" class="form-label">Nombre de Usuario:</label>
+            <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                class="form-input"
+                placeholder="Ingresa tu nombre de usuario" 
+                required>
+        </div>
 
-        <label for="password">Contraseña:</label>
-        <input 
-            type="password" 
-            id="password" 
-            name="password" 
-            placeholder="Ingresa tu contraseña" 
-            required>
-        <br><br>
+        <!-- Campo de Email -->
+        <div class="form-group">
+            <label for="email" class="form-label">Email:</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input"
+                placeholder="Ingresa tu email" 
+                required>
+        </div>
 
-        <label for="phone_number">Teléfono:</label>
-        <input 
-            type="text" 
-            id="phone_number" 
-            name="phone_number" 
-            placeholder="Ingresa tu número de teléfono">
-        <br><br>
+        <!-- Campo de Contraseña -->
+        <div class="form-group">
+            <label for="password" class="form-label">Contraseña:</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                class="form-input"
+                placeholder="Ingresa tu contraseña" 
+                required>
+        </div>
 
-        <button type="submit">Registrarse</button>
+        <!-- Campo de Teléfono -->
+        <div class="form-group">
+            <label for="phone_number" class="form-label">Teléfono:</label>
+            <input 
+                type="text" 
+                id="phone_number" 
+                name="phone_number" 
+                class="form-input"
+                placeholder="Ingresa tu número de teléfono">
+        </div>
+
+        <!-- Botón de Registro -->
+        <button type="submit" class="login-button">Registrarse</button>
     </form>
-</body>
-</html>
+</main>
+{% endblock %}

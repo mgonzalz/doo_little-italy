@@ -1,0 +1,128 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Quattrocento', serif;
+    background-color: #fff8f4; /* Color de fondo */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Altura completa de la ventana */
+    overflow: hidden; /* Elimina cualquier barra de desplazamiento */
+    display: flex;
+    flex-direction: column; /* Permite organizar la barra de navegación y el contenido */
+}
+
+/* Barra de navegación */
+.navbar {
+    height: 70px; /* Altura de la barra de navegación */
+    background-color: #000; /* Fondo negro para la barra */
+    color: #fff; /* Texto blanco */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.login-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Ocupa el espacio restante debajo de la barra de navegación */
+    padding: 1rem;
+}
+
+/* Contenedor del formulario */
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Evita que el formulario sea demasiado ancho */
+    background-color: #ffffff; /* Fondo blanco para el formulario */
+    padding: 2rem;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centra el texto */
+}
+
+/* Título del formulario */
+.login-title {
+    font-size: 1.8rem; /* Tamaño del título */
+    color: #000; /* Color negro */
+    margin-bottom: 1.5rem; /* Espacio debajo del título */
+    font-weight: bold;
+}
+
+/* Grupo de formulario */
+.form-group {
+    margin-bottom: 1.5rem; /* Espaciado entre los campos */
+    text-align: left; /* Alinea las etiquetas a la izquierda */
+}
+
+/* Etiquetas del formulario */
+.form-label {
+    display: block; /* Hace que la etiqueta ocupe toda la línea */
+    margin-bottom: 0.5rem; /* Espacio debajo de la etiqueta */
+    font-weight: bold; /* Destaca la etiqueta */
+    font-size: 1rem;
+}
+
+/* Campos de entrada */
+.form-input {
+    width: 90%; /* El campo ocupa el 90% del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #e0e0e0; /* Borde gris claro */
+    background: #fcfcfc; /* Fondo claro */
+    padding: 0.75rem 1rem; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+    box-shadow: 0 2px 2px rgba(33, 37, 41, 0.06),
+                0 0 1px rgba(33, 37, 41, 0.08); /* Sombra sutil */
+    font-family: 'Quattrocento', serif; /* Fuente Quattrocento */
+}
+
+.form-input:focus {
+    outline: none; /* Elimina el contorno azul predeterminado */
+    border-color: #ff0000; /* Cambia el borde al rojo */
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1); /* Sombra roja */
+}
+
+/* Botón de inicio de sesión */
+.login-button {
+    width: 100%; /* Ocupa todo el ancho del formulario */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #ff0000; /* Fondo rojo */
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    padding: 1rem; /* Espaciado interno */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al estilo clicable */
+    font-size: 1.125rem; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.2s ease; /* Transición suave */
+}
+
+.login-button:hover {
+    background-color: #e60000; /* Cambia a un rojo más oscuro al pasar el ratón */
+}
+
+.login-button:focus {
+    outline: none; /* Elimina el contorno azul predeterminado */
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3); /* Sombra roja */
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #ff0000; /* Texto en rojo */
+    margin-bottom: 1rem; /* Espacio debajo del mensaje */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centrado */
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 0; /* Reduce el margen en pantallas pequeñas */
+        padding: 1.5rem; /* Reduce el padding interno */
+    }
+
+    .login-main {
+        padding: 1rem; /* Reduce el espaciado en pantallas pequeñas */
+    }
+}
