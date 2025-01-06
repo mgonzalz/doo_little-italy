@@ -1,0 +1,141 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Quattrocento', serif;
+    background-color: #fff8f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+}
+
+/* Barra de navegación */
+.navbar {
+    height: 70px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+.login-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 2rem 1rem;
+}
+
+/* Contenedor del formulario */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título del formulario */
+.login-title {
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+/* Grupo de formulario */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+/* Etiquetas del formulario */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Campos de entrada */
+.form-input {
+    width: 90%;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background: #fcfcfc;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    box-shadow: 0 2px 2px rgba(33, 37, 41, 0.06),
+                0 0 1px rgba(33, 37, 41, 0.08);
+    font-family: 'Quattrocento', serif;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
+/* Botón de inicio de sesión */
+.login-button {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: #e60000;
+}
+
+.login-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #ff0000;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Estilo para el enlace "Forgot your password?" */
+.forgot-password-link {
+    color: rgba(0, 128, 0, 1);
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+    color: rgba(0, 100, 0, 1);
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 0;
+        padding: 1.5rem;
+    }
+
+    .login-main {
+        padding: 1rem;
+    }
+}
