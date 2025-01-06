@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'recipes',
     'core',
     'contact',
+    'authentication',
 
     # Third-party apps
     'rest_framework', # Django REST framework - Nice clean views for API.
