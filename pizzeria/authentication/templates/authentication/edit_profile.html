@@ -5,129 +5,7 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'authentication/css/login.css' %}">
-<style>
-    /* Fondo general */
-    body {
-        height: auto;
-        overflow-y: auto;
-        margin: 0;
-        padding: 0;
-        background-color: #fff8f4;
-    }
-
-    /* Centrar el contenedor principal */
-    .login-main {
-        min-height: 100vh;
-        padding: 2rem 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Cuadro principal */
-    .login-container {
-        width: 100%;
-        max-width: 900px; /* Más ancho para acomodar dos columnas */
-        background-color: #ffffff;
-        padding: 2rem;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    .login-title {
-        font-size: 1.8rem;
-        color: #000;
-        margin-bottom: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    /* Contenedor de dos columnas */
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-        gap: 2rem; /* Espacio entre columnas */
-    }
-
-    /* Cada campo del formulario */
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-    }
-
-    .form-label {
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-    }
-
-    .form-input {
-        border-radius: 8px;
-        border: 1px solid #e0e0e0;
-        background: #fcfcfc;
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
-        box-shadow: 0 2px 2px rgba(33, 37, 41, 0.06),
-                    0 0 1px rgba(33, 37, 41, 0.08);
-        font-family: 'Quattrocento', serif;
-    }
-
-    .form-input:focus {
-        outline: none;
-        border-color: #ff0000;
-        box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
-    }
-
-    /* Botón */
-    .login-button {
-        width: 100%;
-        border-radius: 5px;
-        background-color: #ff0000;
-        color: #ffffff;
-        text-align: center;
-        padding: 1rem;
-        border: none;
-        cursor: pointer;
-        font-size: 1.125rem;
-        font-weight: bold;
-        transition: background-color 0.2s ease;
-        margin-top: 1.5rem;
-    }
-
-    .login-button:hover {
-        background-color: #e60000;
-    }
-
-    /* Enlace para volver al Home */
-    .bottom-spacer {
-        margin-top: 1.5rem;
-    }
-
-    .forgot-password-link {
-        color: rgba(0, 128, 0, 1);
-        font-weight: 400;
-        text-decoration: none;
-        font-size: 0.95rem;
-    }
-
-    .forgot-password-link:hover {
-        text-decoration: underline;
-        color: rgba(0, 100, 0, 1);
-    }
-
-    /* Responsividad para pantallas pequeñas */
-    @media (max-width: 768px) {
-        .form-grid {
-            grid-template-columns: 1fr; /* Las columnas se apilan */
-        }
-
-        .login-container {
-            padding: 1.5rem;
-        }
-    }
-</style>
+<link rel="stylesheet" href="{% static 'authentication/css/change_password.css' %}">
 
 <main class="login-main">
     <form method="post" class="login-container">
@@ -242,6 +120,7 @@
     </form>
 </main>
 {% endblock %}
+
 
 
 
