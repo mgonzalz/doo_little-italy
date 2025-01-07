@@ -4,35 +4,42 @@
 {% block title %}{{ recipe.name }}{% endblock %}
 
 {% block content %}
+<!-- Cargar las fuentes de Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Quattrocento&display=swap" rel="stylesheet">
+<!-- Cargar el archivo CSS -->
 <link rel="stylesheet" href="{% static 'recipes/css/details.css' %}">
 
 <div class="recipe-detail-container">
     <div class="contact-heading" role="heading" aria-level="1" tabindex="0">{{ recipe.name }}</div>  
 
     <div class="recipe-main-content">
-        <!-- Imagen y botón al lado izquierdo -->
+        <!-- Imagen al lado izquierdo -->
         <div class="recipe-image-container">
             <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image-large">
-
-            <!-- Botón de pedir -->
-            <button class="order-button">Pedir</button>
+            
+            <!-- Botón de pedir ajustado al ancho de la imagen -->
+            <div class="order-button-container">
+                <button class="order-button">Pedir</button>
+            </div>
         </div>
 
         <!-- Información al lado derecho -->
         <div class="recipe-info-section">
+            <!-- Precio resaltado -->
+            <p class="recipe-price"><strong>Precio:</strong> ${{ recipe.price|floatformat:2 }}</p>
+
             <h2>Información de la receta</h2>
             <p><strong>Calorías:</strong> {{ recipe.calories|floatformat:2 }}</p>
 
             <!-- Etiquetas de Salud como botones -->
             <p><strong>Etiquetas de Salud:</strong></p>
             <div class="health-buttons">
-                {% for label in recipe.healthLabels %}
+                {% for label in health_labels %}
                 <button class="health-button">{{ label }}</button>
                 {% endfor %}
             </div>
 
             <p><strong>Tipo de cocina:</strong> {{ recipe.cuisineType }}</p>
-            <p><strong>Precio:</strong> ${{ recipe.price|floatformat:2 }}</p>
 
             <h3>Ingredientes:</h3>
             <ul>
@@ -67,6 +74,11 @@
     </div>
 </div>
 {% endblock %}
+
+
+
+
+
 
 
 
