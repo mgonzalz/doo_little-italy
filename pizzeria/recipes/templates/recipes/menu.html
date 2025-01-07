@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Menu{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'recipes/css/menu.css' %}">
+<main style="background-color: rgba(253, 248, 244, 1);">
+    <div class="menu-container">
+        <!-- Encabezado -->
+        <div class="contact-heading" role="heading" aria-level="1" tabindex="0">Pizza Selection</div>
+    
+        <!-- Filtros -->
+        <div class="filters">
+            <button class="filter-button">Favourites</button>
+            <select class="filter-select">
+                <option value="">Price</option>
+                <option value="low-to-high">Low to High</option>
+                <option value="high-to-low">High to Low</option>
+            </select>
+            <select class="filter-select">
+                <option value="">Calories Watches</option>
+                <option value="low-to-high">Low to High</option>
+                <option value="high-to-low">High to Low</option>
+            </select>
+            <select class="filter-select">
+                <option value="">Diet</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-Free</option>
+            </select>
+            <input type="text" class="search-box" placeholder="Search by title or ingredients">
+        </div>
+    
+        <!-- Lista de Pizzas -->
+        <div class="recipe-grid">
+            {% for recipe in recipes %}
+            <div class="recipe-card">
+                <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image">
+                <div class="recipe-info">
+                    <h3 class="recipe-title">{{ recipe.name }}</h3>
+                    <p class="recipe-price">{{ recipe.price|floatformat:2 }} $</p>
+                </div>
+                <button class="order-button">Pedir</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}
