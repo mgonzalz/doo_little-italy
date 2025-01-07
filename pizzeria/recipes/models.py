@@ -9,6 +9,7 @@ class Recipe(models.Model): # Info: https://developer.edamam.com/edamam-docs-rec
     calories = models.FloatField()
     totalNutrients = models.JSONField()
     ingredients = models.TextField()
+    price = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.name

@@ -21,6 +21,13 @@ class Command(BaseCommand):
                 total_nutrients = recipe.get("totalNutrients", {})
                 ingredients = ", ".join(recipe.get("ingredientLines", []))
 
+                # Estimated Price.
+                base_price = 10
+                price_per_calorie = 0.05 / 100 # 0.05 $ per 100 calories.
+                price = (
+                    base_price
+                    + (calories * price_per_calorie))
+
                 # Create or update the recipe.
                 Recipe.objects.update_or_create(
                     name=name,
@@ -31,6 +38,7 @@ class Command(BaseCommand):
                         "calories": calories,
                         "totalNutrients": total_nutrients,
                         "ingredients": ingredients,
+                        "price": round(price, 2),
                     },
                 )
 
