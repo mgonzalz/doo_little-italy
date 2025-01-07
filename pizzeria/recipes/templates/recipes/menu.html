@@ -9,29 +9,39 @@
     <div class="menu-container">
         <!-- Encabezado -->
         <div class="contact-heading" role="heading" aria-level="1" tabindex="0">Pizza Selection</div>
-    
+
+
         <!-- Filtros -->
-        <div class="filters">
-            <button class="filter-button">Favourites</button>
-            <select class="filter-select">
+        <form method="get" class="filters">
+            <!-- Filtro Price -->
+            <select name="price" class="filter-select" onchange="this.form.submit()">
                 <option value="">Price</option>
-                <option value="low-to-high">Low to High</option>
-                <option value="high-to-low">High to Low</option>
+                <option value="low-to-high" {% if request.GET.price == 'low-to-high' %}selected{% endif %}>Low to High</option>
+                <option value="high-to-low" {% if request.GET.price == 'high-to-low' %}selected{% endif %}>High to Low</option>
             </select>
-            <select class="filter-select">
+
+            <!-- Filtro Calories -->
+            <select name="calories" class="filter-select" onchange="this.form.submit()">
                 <option value="">Calories Watches</option>
-                <option value="low-to-high">Low to High</option>
-                <option value="high-to-low">High to Low</option>
+                <option value="low-to-high" {% if request.GET.calories == 'low-to-high' %}selected{% endif %}>Low to High</option>
+                <option value="high-to-low" {% if request.GET.calories == 'high-to-low' %}selected{% endif %}>High to Low</option>
             </select>
-            <select class="filter-select">
+
+            <!-- Filtro Diet -->
+            <select name="diet" class="filter-select" onchange="this.form.submit()">
                 <option value="">Diet</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="vegan">Vegan</option>
-                <option value="gluten-free">Gluten-Free</option>
+                <option value="Vegetarian" {% if request.GET.diet == "Vegetarian" %}selected{% endif %}>Vegetarian</option>
+                <option value="Vegan" {% if request.GET.diet == "Vegan" %}selected{% endif %}>Vegan</option>
+                <option value="Gluten-Free" {% if request.GET.diet == "Gluten-Free" %}selected{% endif %}>Gluten-Free</option>
+                <option value="Egg-Free" {% if request.GET.diet == "Egg-Free" %}selected{% endif %}>Egg-Free</option>
+                <option value="Pescatarian" {% if request.GET.diet == "Pescatarian" %}selected{% endif %}>Pescatarian</option>
             </select>
-            <input type="text" class="search-box" placeholder="Search by title or ingredients">
-        </div>
-    
+
+            <!-- Búsqueda -->
+            <input type="text" name="search" class="search-box" placeholder="Search by title or ingredients" value="{{ request.GET.search }}" oninput="this.form.submit()">
+        </form>
+
+
         <!-- Lista de Pizzas -->
         <div class="recipe-grid">
             {% for recipe in recipes %}
