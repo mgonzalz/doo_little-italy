@@ -7,31 +7,51 @@
 <link rel="stylesheet" href="{% static 'recipes/css/details.css' %}">
 
 <div class="recipe-detail-container">
-    <div class="contact-heading" role="heading" aria-level="1" tabindex="0">{{ recipe.name }}</div>
-    <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image-large">
+    <div class="contact-heading" role="heading" aria-level="1" tabindex="0">{{ recipe.name }}</div>  
 
-    <div class="recipe-info-section">
-        <h2>Recipe Information</h2>
-        <p><strong>Calories:</strong> {{ recipe.calories|floatformat:2 }}</p>
-        <p><strong>Health Labels:</strong> {{ recipe.healthLabels }}</p>
-        <p><strong>Cuisine Type:</strong> {{ recipe.cuisineType }}</p>
+    <div class="recipe-main-content">
+        <!-- Imagen y botón al lado izquierdo -->
+        <div class="recipe-image-container">
+            <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image-large">
 
-        <h3>Ingredients:</h3>
-        <ul>
-            {% for ingredient in ingredients_list %}
-            <li>{{ ingredient }}</li>
-            {% endfor %}
-        </ul>
+            <!-- Botón de pedir -->
+            <button class="order-button">Pedir</button>
+        </div>
+
+        <!-- Información al lado derecho -->
+        <div class="recipe-info-section">
+            <h2>Información de la receta</h2>
+            <p><strong>Calorías:</strong> {{ recipe.calories|floatformat:2 }}</p>
+
+            <!-- Etiquetas de Salud como botones -->
+            <p><strong>Etiquetas de Salud:</strong></p>
+            <div class="health-buttons">
+                {% for label in recipe.healthLabels %}
+                <button class="health-button">{{ label }}</button>
+                {% endfor %}
+            </div>
+
+            <p><strong>Tipo de cocina:</strong> {{ recipe.cuisineType }}</p>
+            <p><strong>Precio:</strong> ${{ recipe.price|floatformat:2 }}</p>
+
+            <h3>Ingredientes:</h3>
+            <ul>
+                {% for ingredient in ingredients_list %}
+                <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 
+    <!-- Tabla de nutrientes -->
     <div class="recipe-nutrition-section">
-        <h2>Total Nutrients</h2>
+        <h2>Nutrientes totales</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Nutrient</th>
-                    <th>Quantity</th>
-                    <th>Unit</th>
+                    <th>Nutriente</th>
+                    <th>Cantidad</th>
+                    <th>Unidad</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,3 +67,7 @@
     </div>
 </div>
 {% endblock %}
+
+
+
+
