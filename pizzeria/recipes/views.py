@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .models import Recipe
+from django.db.models import Q
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
-from django.db.models import Q
 
 def menu(request):
     recipes = Recipe.objects.all()
@@ -41,3 +42,12 @@ def menu(request):
     }
     return render(request, 'recipes/menu.html', context)
 
+
+def recipe_detail(request, id):
+    recipe = get_object_or_404(Recipe, id=id)
+    ingredients_list = recipe.ingredients.split(', ')
+    context = {
+        'recipe': recipe,
+        'ingredients_list': ingredients_list,
+    }
+    return render(request, 'recipes/recipe_detail.html', context)

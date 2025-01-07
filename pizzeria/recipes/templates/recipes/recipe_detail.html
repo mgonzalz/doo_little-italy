@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'recipes/css/details.css' %}">
+
+<div class="recipe-detail-container">
+    <div class="contact-heading" role="heading" aria-level="1" tabindex="0">{{ recipe.name }}</div>
+    <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image-large">
+
+    <div class="recipe-info-section">
+        <h2>Recipe Information</h2>
+        <p><strong>Calories:</strong> {{ recipe.calories|floatformat:2 }}</p>
+        <p><strong>Health Labels:</strong> {{ recipe.healthLabels }}</p>
+        <p><strong>Cuisine Type:</strong> {{ recipe.cuisineType }}</p>
+
+        <h3>Ingredients:</h3>
+        <ul>
+            {% for ingredient in ingredients_list %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="recipe-nutrition-section">
+        <h2>Total Nutrients</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nutrient</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nutrient_key, nutrient_data in recipe.totalNutrients.items %}
+                <tr>
+                    <td>{{ nutrient_data.label }}</td>
+                    <td>{{ nutrient_data.quantity|floatformat:2 }}</td>
+                    <td>{{ nutrient_data.unit }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

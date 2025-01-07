@@ -52,9 +52,13 @@
         <div class="recipe-grid">
             {% for recipe in recipes %}
             <div class="recipe-card">
-                <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image">
+                <a href="{% url 'recipe_detail' recipe.id %}">
+                    <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image">
+                </a>
                 <div class="recipe-info">
-                    <h3 class="recipe-title">{{ recipe.name }}</h3>
+                    <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-title-link">
+                        <h3 class="recipe-title">{{ recipe.name }}</h3>
+                    </a>
                     <p class="recipe-price">$ {{ recipe.price|floatformat:2 }}</p>
                 </div>
                 <button class="order-button">Pedir</button>

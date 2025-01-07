@@ -7,6 +7,16 @@
 }
 
 /* Grid de Recetas */
+.recipe-title-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+.recipe-title-link:hover {
+    color: #ff0000; /* Cambia el color al pasar el cursor */
+}
+
 .recipe-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta columnas automáticamente */
