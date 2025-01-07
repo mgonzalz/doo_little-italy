@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 def menu(request):
     recipes = Recipe.objects.all()
 
-    # Filtro de dieta
+    # Filtro de dieta  
     diet = request.GET.get('diet')
     if diet:
         diet_query = f"(^|, )({diet})(,|$)"
@@ -28,12 +28,12 @@ def menu(request):
     elif calories == 'high-to-low':
         recipes = recipes.order_by('-calories')
 
-    # Filtro de busqueda por nombre o ingredientes
+    # Filtro de búsqueda por nombre o ingredientes
     search = request.GET.get('search')
     if search:
         recipes = recipes.filter(Q(name__icontains=search) | Q(ingredients__icontains=search))
 
-    # Etiquetas Relevantes - Dietas
+    # Etiquetas relevantes - Dietas
     labels = ["Vegetarian", "Vegan", "Gluten-Free", "Egg-Free", "Pescatarian"]
 
     context = {
@@ -46,8 +46,13 @@ def menu(request):
 def recipe_detail(request, id):
     recipe = get_object_or_404(Recipe, id=id)
     ingredients_list = recipe.ingredients.split(', ')
+    
+    # Dividimos etiquetas de salud correctamente
+    health_labels = recipe.healthLabels.split(', ')
+    
     context = {
         'recipe': recipe,
         'ingredients_list': ingredients_list,
+        'health_labels': health_labels,  # Enviamos etiquetas al contexto
     }
     return render(request, 'recipes/recipe_detail.html', context)
