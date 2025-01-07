@@ -94,3 +94,81 @@
     display: block;
     height: 2rem; /* Espaciado adicional al final del grid */
 }
+
+
+/* Contenedor del formulario de filtros */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(253, 248, 244, 1);
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Quattrocento', sans-serif;
+}
+
+.filter-select {
+    appearance: none; /* Elimina el estilo predeterminado del selector */
+    -webkit-appearance: none; /* Para navegadores basados en WebKit */
+    -moz-appearance: none; /* Para Firefox */
+    border-radius: 8px;
+    border: 1px solid #ced4da; /* Borde gris claro */
+    background-color: #fff;
+    padding: 10px 16px;
+    font: 400 20px/1.2 'Quattrocento', -apple-system, Roboto, Helvetica, sans-serif;
+    color: #212529; /* Color del texto */
+    box-shadow: 0px 2px 2px rgba(33, 37, 41, 0.06), 0px 0px 1px rgba(33, 37, 41, 0.08); /* Sombra */
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5"><path fill="%23333333" d="M0 0l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 10px;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #6c757d; /* Cambia el color del borde al enfocar */
+}
+
+.filter-select:hover {
+    border-color: #adb5bd; /* Color de borde más oscuro al pasar el mouse */
+}
+
+/* Cuadro de búsqueda */
+.search-box {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-family: 'Quattrocento', sans-serif;
+    color: #333;
+    border: 1px solid #ced4da;
+    border-radius: 100px;
+    background-color: #fff;
+    box-shadow: 0px 2px 2px rgba(33, 37, 41, 0.06),
+                0px 0px 1px rgba(33, 37, 41, 0.08);
+}
+
+.search-box::placeholder {
+    color: #adb5bd;
+}
+
+.search-box:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .filters {
+    flex-direction: column;
+    gap: 12px;
+    }
+
+    .filter-select,
+    .search-box {
+    width: 100%;
+    }
+}

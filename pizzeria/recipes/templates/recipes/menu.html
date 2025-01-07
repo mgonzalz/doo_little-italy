@@ -22,7 +22,7 @@
 
             <!-- Filtro Calories -->
             <select name="calories" class="filter-select" onchange="this.form.submit()">
-                <option value="">Calories Watches</option>
+                <option value="">Calories Watches &nbsp;&nbsp;&nbsp;</option>
                 <option value="low-to-high" {% if request.GET.calories == 'low-to-high' %}selected{% endif %}>Low to High</option>
                 <option value="high-to-low" {% if request.GET.calories == 'high-to-low' %}selected{% endif %}>High to Low</option>
             </select>
@@ -38,8 +38,14 @@
             </select>
 
             <!-- Búsqueda -->
-            <input type="text" name="search" class="search-box" placeholder="Search by title or ingredients" value="{{ request.GET.search }}" oninput="this.form.submit()">
-        </form>
+            <input 
+                type="text" 
+                name="search" 
+                class="search-box" 
+                placeholder="Search by title or ingredients" 
+                value="{{ request.GET.search }}">
+            <button type="submit" style="display: none;"></button>
+                </form>
 
 
         <!-- Lista de Pizzas -->
@@ -49,7 +55,7 @@
                 <img src="{{ recipe.image }}" alt="{{ recipe.name }}" class="recipe-image">
                 <div class="recipe-info">
                     <h3 class="recipe-title">{{ recipe.name }}</h3>
-                    <p class="recipe-price">{{ recipe.price|floatformat:2 }} $</p>
+                    <p class="recipe-price">$ {{ recipe.price|floatformat:2 }}</p>
                 </div>
                 <button class="order-button">Pedir</button>
             </div>
