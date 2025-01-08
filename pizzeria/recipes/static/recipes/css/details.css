@@ -1,7 +1,7 @@
 /* Establecer el color de fondo para todo el cuerpo de la página */
 body {
     background-color: #FDF8F4;
-    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family: 'Quattrocento', serif;
 }
 
 /* Contenedor principal */
@@ -9,7 +9,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family: 'Quattrocento', serif;
 }
 
 /* Título principal */
@@ -28,7 +28,7 @@ body {
     font-weight: bold;
     color: #333333;
     margin-bottom: 20px;
-    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family: 'Quattrocento', serif;
 }
 
 /* Diseño de contenido principal */
@@ -90,7 +90,7 @@ body {
 .recipe-info-section h2, .recipe-info-section h3 {
     color: #333333;
     margin-bottom: 15px;
-    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family: 'Quattrocento', serif;
 }
 
 .recipe-info-section p, 
@@ -98,7 +98,7 @@ body {
 .recipe-info-section li {
     font-size: 16px;
     color: #555555;
-    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family: 'Quattrocento', serif;
 }
 
 /* Botones de etiquetas de salud */
@@ -118,7 +118,7 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family: 'Quattrocento', serif;
 }
 
 .health-button:hover {
@@ -147,7 +147,7 @@ body {
     text-align: left;
     padding: 12px;
     border: 1px solid #ddd;
-    font-family: 'Quattrocento Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family: 'Quattrocento', serif;
 }
 
 .recipe-nutrition-section table th {
