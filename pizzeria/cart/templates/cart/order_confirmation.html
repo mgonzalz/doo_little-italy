@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block content %}
+<div class="confirmation-container">
+    <h1>Order Confirmed</h1>
+    <p>Thank you for your order, {{ request.user.username }}!</p>
+    <h3>Order Details:</h3>
+    <ul>
+        {% for item in order.order_items.all %}
+            <li>
+                {{ item.recipe.name }} (x{{ item.quantity }}) - ${{ item.total_price }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h3>Total: ${{ order.total_price }}</h3>
+    <p>Your order is currently: <strong>{{ order.status }}</strong>.</p>
+</div>
+{% endblock %}
