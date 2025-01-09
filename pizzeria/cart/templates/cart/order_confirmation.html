@@ -3,18 +3,197 @@
 {% block title %}Order Confirmation{% endblock %}
 
 {% block content %}
+<!-- Cargar las fuentes de Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Quattrocento&display=swap" rel="stylesheet">
+
+<!-- Estilos internos -->
+<style>
+    body {
+        background-color: #FDF8F4;
+        font-family: 'Quattrocento', serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .confirmation-container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: 'Quattrocento', serif;
+    }
+
+    .confirmation-container h1 {
+        font-family: 'Averia Serif Libre', serif;
+        font-size: 28px;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .status-flow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        position: relative;
+        padding: 0 20px;
+        height: 80px; /* Aseguramos que la línea y bolas estén alineadas */
+    }
+
+    /* Línea de conexión centrada exactamente en el medio de las bolas */
+    .status-flow::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        right: 10%;
+        height: 4px;
+        background-color: #ddd;
+        z-index: 0;
+        transform: translateY(-50%);
+    }
+
+    /* Gradientes de colores según el estado */
+    .status-flow.pending::before {
+        background: linear-gradient(to right, #FFAA00 33%, #ddd 33%);
+    }
+
+    .status-flow.in-progress::before {
+        background: linear-gradient(to right, #FFAA00 33%, #0088FF 66%, #ddd 66%);
+    }
+
+    .status-flow.delivered::before {
+        background: linear-gradient(to right, #FFAA00 33%, #0088FF 66%, #00AA00 100%);
+    }
+
+    .status-flow.cancelled::before {
+        background-color: #FF0000;
+    }
+
+    .status-ball {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        z-index: 1;
+        position: relative;
+    }
+
+    .status-ball.active {
+        background-color: #00AA00;
+    }
+
+    .status-ball.pending {
+        background-color: #FFAA00;
+    }
+
+    .status-ball.in-progress {
+        background-color: #0088FF;
+    }
+
+    .status-ball.delivered {
+        background-color: #4CAF50;
+    }
+
+    .status-ball.cancelled {
+        background-color: #FF0000;
+    }
+
+    .status-label {
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+        margin-top: 10px;
+    }
+
+    .order-details {
+        margin-top: 30px;
+    }
+
+    .order-details h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+        font-family: 'Quattrocento', serif;
+    }
+
+    .order-item-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #F9F9F9;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-item-details {
+        flex: 1;
+    }
+
+    .order-item-name {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .order-item-quantity {
+        font-size: 14px;
+        color: #555;
+    }
+
+    .order-item-price {
+        font-size: 16px;
+        color: #00AA00;
+        font-weight: bold;
+    }
+</style>
+
 <div class="confirmation-container">
     <h1>Order Confirmed</h1>
     <p>Thank you for your order, {{ request.user.username }}!</p>
-    <h3>Order Details:</h3>
-    <ul>
+
+    <!-- Flujo de estado -->
+    <div class="status-flow {% if order.status == 'Cancelled' %}cancelled{% elif order.status == 'Delivered' %}delivered{% elif order.status == 'In Progress' %}in-progress{% elif order.status == 'Pending' %}pending{% endif %}">
+        <div>
+            <div class="status-ball {% if order.status == 'Pending' or order.status == 'In Progress' or order.status == 'Delivered' %}active pending{% elif order.status == 'Cancelled' %}cancelled{% endif %}">1</div>
+            <p class="status-label">Pending</p>
+        </div>
+        <div>
+            <div class="status-ball {% if order.status == 'In Progress' or order.status == 'Delivered' %}active in-progress{% elif order.status == 'Cancelled' %}cancelled{% endif %}">2</div>
+            <p class="status-label">In Progress</p>
+        </div>
+        <div>
+            <div class="status-ball {% if order.status == 'Delivered' %}active delivered{% elif order.status == 'Cancelled' %}cancelled{% endif %}">3</div>
+            <p class="status-label">{% if order.status == 'Cancelled' %}Cancelled{% else %}Delivered{% endif %}</p>
+        </div>
+    </div>
+
+    <!-- Detalles del pedido -->
+    <div class="order-details">
+        <h3>Order Details:</h3>
         {% for item in order.order_items.all %}
-            <li>
-                {{ item.recipe.name }} (x{{ item.quantity }}) - ${{ item.total_price|floatformat:2 }}
-            </li>
+        <div class="order-item-card">
+            <div class="order-item-details">
+                <p class="order-item-name">{{ item.recipe.name }}</p>
+                <p class="order-item-quantity">Quantity: {{ item.quantity }}</p>
+            </div>
+            <p class="order-item-price">${{ item.total_price|floatformat:2 }}</p>
+        </div>
         {% endfor %}
-    </ul>
-    <h3>Total: ${{ order.total_price }}</h3>
-    <p>Your order is currently: <strong>{{ order.status }}</strong>.</p>
+    </div>
+
+    <h3>Total: ${{ order.total_price|floatformat:2 }}</h3>
 </div>
 {% endblock %}
