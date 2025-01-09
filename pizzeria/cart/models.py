@@ -17,7 +17,6 @@ class CartItem(models.Model):
 
 
 ## Modelos para hacer el checkout.
-
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -31,6 +30,9 @@ class Order(models.Model):
         ],
         default='Pending',
     )
+    class Meta:
+        verbose_name = "Order"
+        verbose_name_plural = "Orders"
 
     def total_price(self):
         return sum(item.total_price() for item in self.order_items.all())

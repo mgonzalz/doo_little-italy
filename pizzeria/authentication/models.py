@@ -9,6 +9,10 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=100, blank=True, null=True)
     state = models.CharField(max_length=100, blank=True, null=True)
     zip_code = models.CharField(max_length=10, blank=True, null=True)
-    
+
+    class Meta:
+        verbose_name = "User Profile"
+        verbose_name_plural = "User Profiles"
+
     def __str__(self):
         return self.user.username
