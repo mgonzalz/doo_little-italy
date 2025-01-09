@@ -1,0 +1,153 @@
+/* Fondo general de la página */
+body {
+    background-color: #FDF8F4; /* Fondo beige */
+    font-family: 'Quattrocento', serif; /* Fuente general */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal del carrito */
+.cart-container {
+    max-width: 1200px;
+    margin: 20px auto; /* Espaciado superior e inferior */
+    padding: 20px;
+    background-color: #FFFFFF; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar el contenedor */
+}
+
+/* Tabla del carrito */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Quattrocento', serif;
+}
+
+.cart-table th, .cart-table td {
+    text-align: left;
+    padding: 16px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.cart-table th {
+    background-color: #F5F5F5;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-table td {
+    vertical-align: middle;
+}
+
+.cart-table tr:nth-child(even) {
+    background-color: #F9F9F9;
+}
+
+/* Campo de cantidad estilizado */
+.quantity-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.update-button {
+    background-color: #0066CC;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #004C99;
+}
+
+/* Botón de eliminar */
+.remove-button {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove-button:hover {
+    background-color: #CC0000;
+}
+
+/* Precio estilizado */
+.cart-table .price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Resumen del carrito */
+.cart-summary {
+    margin-top: 20px;
+    text-align: right;
+    font-family: 'Quattrocento', serif;
+}
+
+.cart-summary h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Botón de checkout */
+.checkout-button {
+    background-color: #00AA00;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Quattrocento', serif;
+}
+
+.checkout-button:hover {
+    background-color: #008800;
+}
+
+/* Mensaje de carrito vacío */
+.empty-cart-message {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    font-family: 'Quattrocento', serif;
+}
+
+/* Encabezados */
+.contact-heading {
+    font-family: 'Averia Serif Libre', serif;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
