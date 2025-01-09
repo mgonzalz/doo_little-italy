@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.contrib.auth.views import LogoutView
 
 # URL configuration for pizzeria project (authentication application).
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('edit-profile/', views.edit_profile, name='edit-profile'),
     path('change-password/', views.change_password, name='change-password'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]

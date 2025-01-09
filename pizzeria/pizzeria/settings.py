@@ -163,3 +163,4 @@ REST_FRAMEWORK = {
 
 # Login URL
 LOGIN_URL = '/auth/login/'
+LOGOUT_REDIRECT_URL = '/'
