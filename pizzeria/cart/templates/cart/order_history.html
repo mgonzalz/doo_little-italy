@@ -1,37 +1,48 @@
 {% extends 'core/base.html' %}
 
+{% load static %}
+
 {% block title %}Order History{% endblock %}
 
 {% block content %}
+<!-- Enlazamos el archivo CSS -->
+<link rel="stylesheet" type="text/css" href="{% static 'cart/css/order_history.css' %}">
+
 <div class="order-history-container">
     <h1>Order History</h1>
+    
     {% if orders %}
-        <table class="order-history-table">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Total</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in orders %}
+        <div class="order-history-table-wrapper">
+            <table class="order-history-table">
+                <thead>
                     <tr>
-                        <td>{{ order.id }}</td>
-                        <td>{{ order.created_at|date:"F j, Y, g:i a" }}</td>
-                        <td>{{ order.status }}</td>
-                        <td>${{ order.total_price|floatformat:2 }}</td>
-                        <td>
-                            <a href="{% url 'order_confirmation' order.id %}">View Details</a>
-                        </td>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th>Details</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr class="order-row">
+                            <td class="order-date">{{ order.created_at|date:"F j, Y, g:i a" }}</td>
+                            <td class="order-status">
+                                <span class="status-badge {% if order.status == 'Cancelled' %}cancelled{% elif order.status == 'Delivered' %}delivered{% elif order.status == 'In Progress' %}in-progress{% else %}pending{% endif %}">
+                                    {{ order.status }}
+                                </span>
+                            </td>
+                            <td class="order-total">${{ order.total_price|floatformat:2 }}</td>
+                            <td class="order-details">
+                                <a href="{% url 'order_confirmation' order.id %}" class="view-details-btn">View Details</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {% else %}
-        <p>You have no orders yet.</p>
+        <p class="no-orders-msg">You have no orders yet.</p>
     {% endif %}
 </div>
 {% endblock %}
+

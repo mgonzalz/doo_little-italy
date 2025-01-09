@@ -1,0 +1,105 @@
+/* order_history.css */
+
+.order-history-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Quattrocento', serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.order-history-table-wrapper {
+    overflow-x: auto;
+}
+
+.order-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.order-history-table th, .order-history-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-history-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.order-history-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.order-row {
+    font-size: 18px;
+}
+
+.order-date {
+    color: #555;
+}
+
+.order-status {
+    color: #555;
+}
+
+.status-badge {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    min-width: 120px;  /* Aseguramos que los cuadros sean del mismo tamaño */
+    text-align: center;
+    text-transform: capitalize; /* Para hacer que el texto se vea bien capitalizado */
+}
+
+.status-badge.pending {
+    background-color: #FFAA00;
+}
+
+.status-badge.in-progress {
+    background-color: #0088FF;
+}
+
+.status-badge.delivered {
+    background-color: #00AA00;
+}
+
+.status-badge.cancelled {
+    background-color: #FF0000;
+}
+
+.order-total {
+    font-weight: bold;
+    color: #00AA00;
+}
+
+.order-details a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.order-details a:hover {
+    color: #b20000;  /* Rojo más oscuro al pasar el cursor */
+}
+
+.no-orders-msg {
+    text-align: center;
+    color: #777;
+    font-size: 22px;
+}

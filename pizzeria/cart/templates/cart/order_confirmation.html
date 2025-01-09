@@ -1,6 +1,6 @@
 {% extends 'core/base.html' %}
 
-{% load static %}  <!-- Cargar las etiquetas estáticas aquí -->
+{% load static %} <!-- Agregar esta línea para cargar los archivos estáticos -->
 
 {% block title %}Order Confirmation{% endblock %}
 
@@ -8,8 +8,8 @@
 <!-- Cargar las fuentes de Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Quattrocento&display=swap" rel="stylesheet">
 
-<!-- Referencia al archivo CSS externo -->
-<link rel="stylesheet" href="{% static 'cart/css/order_confirmation.css' %}">
+<!-- Estilos internos -->
+<link rel="stylesheet" type="text/css" href="{% static 'cart/css/order_confirmation.css' %}">
 
 <div class="confirmation-container">
     <h1>Order Confirmed</h1>
@@ -46,5 +46,12 @@
     </div>
 
     <h3>Total: ${{ order.total_price|floatformat:2 }}</h3>
+
+    <!-- Botón de Order History -->
+    <a href="{% url 'order_history' %}" class="order-history-btn">
+        <button class="btn-order-history">View Order History</button>
+    </a>
 </div>
+
 {% endblock %}
+
