@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Order History{% endblock %}
+
+{% block content %}
+<div class="order-history-container">
+    <h1>Order History</h1>
+    {% if orders %}
+        <table class="order-history-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.created_at|date:"F j, Y, g:i a" }}</td>
+                        <td>{{ order.status }}</td>
+                        <td>${{ order.total_price|floatformat:2 }}</td>
+                        <td>
+                            <a href="{% url 'order_confirmation' order.id %}">View Details</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You have no orders yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

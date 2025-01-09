@@ -10,7 +10,7 @@
     <ul>
         {% for item in order.order_items.all %}
             <li>
-                {{ item.recipe.name }} (x{{ item.quantity }}) - ${{ item.total_price }}
+                {{ item.recipe.name }} (x{{ item.quantity }}) - ${{ item.total_price|floatformat:2 }}
             </li>
         {% endfor %}
     </ul>

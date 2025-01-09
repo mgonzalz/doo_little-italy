@@ -39,7 +39,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <h3>Total: ${{ total }}</h3>
+        <h3>Total: ${{ total|floatformat:2 }}</h3>
         <!-- Botón de Checkout -->
         <form method="get" action="{% url 'checkout' %}">
             <button type="submit" class="checkout-button">Checkout</button>
