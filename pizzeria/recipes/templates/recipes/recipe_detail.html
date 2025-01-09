@@ -19,7 +19,7 @@
             
             <!-- Botón de pedir ajustado al ancho de la imagen -->
             <div class="order-button-container">
-                <button class="order-button">Pedir</button>
+                <a href="{% url 'add_to_cart' recipe.id %}"><button class="order-button">Pedir</button></a>
             </div>
         </div>
 

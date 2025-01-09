@@ -61,7 +61,7 @@
                     </a>
                     <p class="recipe-price">$ {{ recipe.price|floatformat:2 }}</p>
                 </div>
-                <button class="order-button">Pedir</button>
+                <a href="{% url 'add_to_cart' recipe.id %}"><button class="order-button">Pedir</button></a>
             </div>
             {% endfor %}
         </div>
