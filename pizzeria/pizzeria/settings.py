@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'contact',
     'authentication',
     'cart',
+    'nutrition',
 
     # Third-party apps
     'rest_framework', # Django REST framework - Nice clean views for API.
