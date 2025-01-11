@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Customize Your Pizza{% endblock %}
+
+{% block content %}
+<h1>Customize Your Pizza</h1>
+<form method="post" action="{% url 'customize_pizza' %}">
+    {% csrf_token %}
+    <label for="name">Pizza Name:</label>
+    <input type="text" name="name" id="name" placeholder="Enter a name for your pizza">
+    <br><br>
+
+    <label for="base">Choose a Base:</label>
+    <select name="base" id="base" required>
+        {% for base in bases %}
+            <option value="{{ base.id }}">{{ base.name }} ({{ base.price_per_unit }}€/{{ base.unit }})</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label for="sauce">Choose a Sauce:</label>
+    <select name="sauce" id="sauce" required>
+        {% for sauce in sauces %}
+            <option value="{{ sauce.id }}">{{ sauce.name }} ({{ sauce.price_per_unit }}€/{{ sauce.unit }})</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label for="toppings">Choose Toppings:</label>
+    <br>
+    {% for topping in toppings %}
+        <input type="checkbox" name="toppings" value="{{ topping.id }}">
+        {{ topping.name }} ({{ topping.price_per_unit }}€/{{ topping.unit }})
+        <br>
+    {% endfor %}
+    <br>
+    <button type="submit">Create Pizza</button>
+</form>
+{% endblock %}
