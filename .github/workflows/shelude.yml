@@ -1,0 +1,72 @@
+name: Update Database
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # Ejecuta el primer día de cada mes a medianoche UTC
+  workflow_dispatch:
+
+jobs:
+  update-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run management commands
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: "True"
+          ALLOWED_HOSTS: "localhost,127.0.0.1"
+
+          # Nutrition API keys
+          EDAMAM_NUTRITION_APP_ID: ${{ secrets.EDAMAM_NUTRITION_APP_ID }}
+          EDAMAM_NUTRITION_APP_KEY: ${{ secrets.EDAMAM_NUTRITION_APP_KEY }}
+
+          # Food API keys
+          EDAMAM_FOOD_APP_ID: ${{ secrets.EDAMAM_FOOD_APP_ID }}
+          EDAMAM_FOOD_APP_KEY: ${{ secrets.EDAMAM_FOOD_APP_KEY }}
+
+          # Recipe API keys
+          EDAMAM_RECIPE_APP_ID: ${{ secrets.EDAMAM_RECIPE_APP_ID }}
+          EDAMAM_RECIPE_APP_KEY: ${{ secrets.EDAMAM_RECIPE_APP_KEY }}
+
+          # Email keys
+          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
+          EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
+          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+
+          # Stripe keys
+          STRIPE_PUBLIC_KEY: ${{ secrets.STRIPE_PUBLIC_KEY }}
+          STRIPE_SECRET: ${{ secrets.STRIPE_SECRET }}
+
+          # Database keys
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_ENGINE: "django.db.backends.postgresql"
+        run: |
+          cd pizzeria
+          MIGRATION_OUTPUT=$(python manage.py migrate --noinput)
+          echo "$MIGRATION_OUTPUT"
+
+          # Comprobamos si se aplicaron migraciones.
+          if echo "$MIGRATION_OUTPUT" | grep -q "No migrations to apply."; then
+            echo "No hay nuevas migraciones, no se ejecutarán las importaciones."
+          else
+            # Si hubo migraciones, ejecuta las importaciones.
+            python manage.py import_nutrition
+            python manage.py import_recipes
+          fi
