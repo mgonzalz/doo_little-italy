@@ -21,7 +21,7 @@ Este proyecto fue desarrollado por **Claudia López** - [@clauloro](https://gith
 1. **Core.** Repositorio central para almacenar páginas y elementos que no requieren modificaciones dinámicas, sirviendo como la base de la estructura del sistema.
 2. **Authentication.** Manejo avanzado de usuarios, incluyendo: Registro, inicio y cierre de sesión; Modificación de datos personales; Seguridad basada en sesiones autenticadas.
 3. **Cart.**
-    - I**Implementación de un carrito** de compras dinámico, que incluye:
+    - **Implementación de un carrito** de compras dinámico, que incluye:
         - Añadir recetas prediseñadas o pizzas personalizadas.
         - Modificación y eliminación de elementos.
         - Seguimiento del estado del pedido (Pendiente, En Proceso, Entregado, Cancelado).
