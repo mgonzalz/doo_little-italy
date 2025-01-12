@@ -1,4 +1,9 @@
-/* order_history.css */
+body {
+    background-color: #FDF8F4;
+    font-family: 'Quattrocento', serif;
+    margin: 0;
+    padding: 0;
+}
 
 .order-history-container {
     max-width: 1000px;

@@ -1,15 +1,18 @@
 {% extends 'core/base.html' %}
 {% load static %}
 
-{% block title %}Your Custom Pizza{% endblock %}
+{% block title %}Pizza Summary{% endblock %}
 
 {% block content %}
-<h1>Your Custom Pizza</h1>
-<p><strong>Name:</strong> {{ custom_pizza.name }}</p>
+<h1>{{ custom_pizza.name }}</h1>
 <p><strong>Base:</strong> {{ custom_pizza.base }}</p>
 <p><strong>Sauce:</strong> {{ custom_pizza.sauce }}</p>
 <p><strong>Toppings:</strong> {{ custom_pizza.toppings }}</p>
-<p><strong>Total Calories:</strong> {{ custom_pizza.calories }}</p>
-<p><strong>Price:</strong> €{{ custom_pizza.price }}</p>
-<a href="{% url 'cart_view' %}">Add to Cart</a>
+<p><strong>Calories:</strong> {{ custom_pizza.calories }} kcal</p>
+<p><strong>Price:</strong> ${{ custom_pizza.price|floatformat:2 }}</p>
+
+<form method="post" action="{% url 'add_custom_pizza_to_cart' custom_pizza.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Add to Cart</button>
+</form>
 {% endblock %}

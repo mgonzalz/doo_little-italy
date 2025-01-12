@@ -1,19 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
 from recipes.models import Recipe
-
+from nutrition.models import CustomPizza
 # Create your models here.
 class CartItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cart_items')
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, null=True, blank=True)
+    custom_pizza = models.ForeignKey(CustomPizza, on_delete=models.CASCADE, null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def total_price(self):
-        return self.recipe.price * self.quantity
+        if self.recipe:
+            return self.recipe.price * self.quantity
+        elif self.custom_pizza:
+            return self.custom_pizza.price * self.quantity
+        return 0
 
     def __str__(self):
-        return f"{self.recipe.name} - {self.quantity} pcs"
+        if self.recipe:
+            return f"{self.recipe.name} - {self.quantity} pcs"
+        elif self.custom_pizza:
+            return f"{self.custom_pizza.name} - {self.quantity} pcs"
 
 
 ## Modelos para hacer el checkout.
@@ -42,11 +50,19 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, null=True, blank=True)
+    custom_pizza = models.ForeignKey(CustomPizza, on_delete=models.CASCADE, null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
 
     def total_price(self):
-        return self.recipe.price * self.quantity
+        if self.recipe:
+            return self.recipe.price * self.quantity
+        elif self.custom_pizza:
+            return self.custom_pizza.price * self.quantity
+        return 0
 
     def __str__(self):
-        return f"{self.recipe.name} ({self.quantity})"
+        if self.recipe:
+            return f"{self.recipe.name} ({self.quantity})"
+        elif self.custom_pizza:
+            return f"{self.custom_pizza.name} ({self.quantity})"

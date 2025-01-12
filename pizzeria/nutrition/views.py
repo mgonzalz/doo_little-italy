@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Ingredient, CustomPizza
 
@@ -48,8 +48,7 @@ def customize_pizza(request):
             calories=total_calories,
             price=total_price
         )
-
-        return redirect('custom_pizza_summary', pizza_id=custom_pizza.id)
+        return redirect('custom_pizza_summary', custom_pizza_id=custom_pizza.id)
 
     return render(request, 'nutrition/customize.html', {
         'bases': bases,
@@ -58,8 +57,8 @@ def customize_pizza(request):
     })
 
 @login_required
-def custom_pizza_summary(request, pizza_id):
-    custom_pizza = CustomPizza.objects.get(id=pizza_id, user=request.user)
+def custom_pizza_summary(request, custom_pizza_id):
+    custom_pizza = get_object_or_404(CustomPizza, id=custom_pizza_id, user=request.user)
     return render(request, 'nutrition/summary.html', {
         'custom_pizza': custom_pizza
     })

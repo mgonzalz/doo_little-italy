@@ -20,7 +20,7 @@
         <table class="cart-table">
             <thead>
                 <tr>
-                    <th>Recipe</th>
+                    <th>Item</th>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Total</th>
@@ -30,7 +30,13 @@
             <tbody>
                 {% for item in cart_items %}
                     <tr>
-                        <td>{{ item.recipe.name }}</td>
+                        <td>
+                            {% if item.recipe %}
+                                {{ item.recipe.name }}
+                            {% elif item.custom_pizza %}
+                                {{ item.custom_pizza.name }}
+                            {% endif %}
+                        </td>
                         <td>
                             <form method="post" action="{% url 'update_cart' item.id %}">
                                 {% csrf_token %}
@@ -40,7 +46,13 @@
                                 </div>
                             </form>
                         </td>
-                        <td class="price">${{ item.recipe.price }}</td>
+                        <td class="price">
+                            {% if item.recipe %}
+                                ${{ item.recipe.price }}
+                            {% elif item.custom_pizza %}
+                                ${{ item.custom_pizza.price }}
+                            {% endif %}
+                        </td>
                         <td class="price">${{ item.total_price }}</td>
                         <td>
                             <form method="post" action="{% url 'remove_from_cart' item.id %}">

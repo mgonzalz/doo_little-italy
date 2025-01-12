@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import CartItem, Order, OrderItem
 from recipes.models import Recipe
+from nutrition.models import CustomPizza
 # Create your views here.
 
 @login_required
@@ -19,6 +20,21 @@ def add_to_cart(request, recipe_id):
         cart_item.save()
     return redirect('cart_view')
 
+@login_required
+def add_custom_pizza_to_cart(request, custom_pizza_id):
+    custom_pizza = get_object_or_404(CustomPizza, id=custom_pizza_id)
+
+    # Crea o actualiza el elemento en el carrito
+    cart_item, created = CartItem.objects.get_or_create(
+        user=request.user,
+        custom_pizza=custom_pizza,
+        recipe=None  # Asegura que es una pizza personalizada
+    )
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+
+    return redirect('cart_view')
 @login_required
 def remove_from_cart(request, cart_item_id):
     cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)
@@ -43,11 +59,19 @@ def checkout(request):
 
     order = Order.objects.create(user=request.user)
     for item in cart_items:
-        OrderItem.objects.create(
-            order=order,
-            recipe=item.recipe,
-            quantity=item.quantity
-        )
+        if item.recipe:
+            OrderItem.objects.create(
+                order=order,
+                recipe=item.recipe,
+                quantity=item.quantity
+            )
+        elif item.custom_pizza:
+            OrderItem.objects.create(
+                order=order,
+                recipe=None,
+                custom_pizza=item.custom_pizza,
+                quantity=item.quantity
+            )
         item.delete()  # Vaciar el carrito.
     return redirect('order_confirmation', order_id=order.id)
 

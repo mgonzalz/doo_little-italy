@@ -37,14 +37,19 @@
         {% for item in order.order_items.all %}
         <div class="order-item-card">
             <div class="order-item-details">
-                <p class="order-item-name">{{ item.recipe.name }}</p>
+                <p class="order-item-name">
+                    {% if item.recipe %}
+                        {{ item.recipe.name }}
+                    {% elif item.custom_pizza %}
+                        {{ item.custom_pizza.name }}
+                    {% endif %}
+                </p>
                 <p class="order-item-quantity">Quantity: {{ item.quantity }}</p>
             </div>
             <p class="order-item-price">${{ item.total_price|floatformat:2 }}</p>
         </div>
         {% endfor %}
     </div>
-
     <h3>Total: ${{ order.total_price|floatformat:2 }}</h3>
 
     <!-- Botón de Order History -->
