@@ -4,37 +4,69 @@
 {% block title %}Customize Your Pizza{% endblock %}
 
 {% block content %}
-<h1>Customize Your Pizza</h1>
-<form method="post" action="{% url 'customize_pizza' %}">
-    {% csrf_token %}
-    <label for="name">Pizza Name:</label>
-    <input type="text" name="name" id="name" placeholder="Enter a name for your pizza">
-    <br><br>
+<link rel="stylesheet" href="{% static 'nutrition/css/customize.css' %}">
+<div class="customize-container">
+    <h1>Customize Your Pizza</h1>
+    <form method="post" action="{% url 'customize_pizza' %}" class="customize-form">
+        {% csrf_token %}
 
-    <label for="base">Choose a Base:</label>
-    <select name="base" id="base" required>
-        {% for base in bases %}
-            <option value="{{ base.id }}">{{ base.name }} ({{ base.price_per_unit }}€/{{ base.unit }})</option>
-        {% endfor %}
-    </select>
-    <br><br>
+        <div class="form-content">
+            <!-- Sección izquierda: nombre, masa y salsa -->
+            <div class="form-left">
+                <div class="form-group">
+                    <label for="name">Pizza Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Enter a name for your pizza">
+                </div>
 
-    <label for="sauce">Choose a Sauce:</label>
-    <select name="sauce" id="sauce" required>
-        {% for sauce in sauces %}
-            <option value="{{ sauce.id }}">{{ sauce.name }} ({{ sauce.price_per_unit }}€/{{ sauce.unit }})</option>
-        {% endfor %}
-    </select>
-    <br><br>
+                <div class="form-group">
+                    <div class="section-title">
+                        <label>Choose a Base:</label>
+                        <span class="price-label">3€/gram</span>
+                    </div>
+                    <div class="radio-group">
+                        {% for base in bases %}
+                            <label class="base-option">
+                                <input type="radio" name="base" value="{{ base.id }}" required>
+                                {{ base.name }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
 
-    <label for="toppings">Choose Toppings:</label>
-    <br>
-    {% for topping in toppings %}
-        <input type="checkbox" name="toppings" value="{{ topping.id }}">
-        {{ topping.name }} ({{ topping.price_per_unit }}€/{{ topping.unit }})
-        <br>
-    {% endfor %}
-    <br>
-    <button type="submit">Create Pizza</button>
-</form>
+                <div class="form-group">
+                    <div class="section-title">
+                        <label>Choose a Sauce:</label>
+                        <span class="price-label">2€/gram</span>
+                    </div>
+                    <div class="radio-group">
+                        {% for sauce in sauces %}
+                            <label class="sauce-option">
+                                <input type="radio" name="sauce" value="{{ sauce.id }}" required>
+                                {{ sauce.name }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección derecha: toppings -->
+            <div class="form-right">
+                <div class="section-title">
+                    <label for="toppings">Choose Toppings:</label>
+                    <span class="price-label">1€/gram</span>
+                </div>
+                <div class="toppings-group">
+                    {% for topping in toppings %}
+                        <div class="topping-item">
+                            <span>{{ topping.name }}</span>
+                            <input type="checkbox" name="toppings" value="{{ topping.id }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="customize-btn">Create Pizza</button>
+    </form>
+</div>
 {% endblock %}

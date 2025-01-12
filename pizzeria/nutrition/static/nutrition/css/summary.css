@@ -1,0 +1,87 @@
+/* summary.css */
+
+body {
+    font-family: 'Quattrocento', serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #444;
+    margin: 10px 0;
+    text-align: center;
+}
+
+p strong {
+    color: #555;
+    font-weight: bold;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+form .btn:hover {
+    background-color: #218838;
+}
+
+form .btn:active {
+    background-color: #1e7e34;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container p {
+    margin-bottom: 15px;
+}
+
+.container h1 {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    form .btn {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}

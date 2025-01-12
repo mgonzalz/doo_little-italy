@@ -4,15 +4,20 @@
 {% block title %}Pizza Summary{% endblock %}
 
 {% block content %}
-<h1>{{ custom_pizza.name }}</h1>
-<p><strong>Base:</strong> {{ custom_pizza.base }}</p>
-<p><strong>Sauce:</strong> {{ custom_pizza.sauce }}</p>
-<p><strong>Toppings:</strong> {{ custom_pizza.toppings }}</p>
-<p><strong>Calories:</strong> {{ custom_pizza.calories }} kcal</p>
-<p><strong>Price:</strong> ${{ custom_pizza.price|floatformat:2 }}</p>
+<link rel="stylesheet" href="{% static 'nutrition/css/summary.css' %}">
 
-<form method="post" action="{% url 'add_custom_pizza_to_cart' custom_pizza.id %}">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-primary">Add to Cart</button>
-</form>
+<div class="summary-container">
+    <h1 class="pizza-name">{{ custom_pizza.name }}</h1>
+    
+    <p><strong>Base:</strong> {{ custom_pizza.base }}</p>
+    <p><strong>Sauce:</strong> {{ custom_pizza.sauce }}</p>
+    <p><strong>Toppings:</strong> {{ custom_pizza.toppings }}</p>
+    <p><strong>Calories:</strong> {{ custom_pizza.calories }} kcal</p>
+    <p><strong>Price:</strong> ${{ custom_pizza.price|floatformat:2 }}</p>
+
+    <form method="post" action="{% url 'add_custom_pizza_to_cart' custom_pizza.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn-add-to-cart">Add to Cart</button>
+    </form>
+</div>
 {% endblock %}

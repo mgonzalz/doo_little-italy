@@ -3,7 +3,7 @@
 {% block title %}Checkout Error{% endblock %}
 
 {% block content %}
-<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Quattrocento&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'cart/css/checkout_error.css' %}">
 
 <div class="error-container">
     <h1>Something went wrong</h1>
@@ -20,14 +20,4 @@
 
     <a href="{% url 'cart_view' %}" class="go-back-btn">Go back to Cart</a>
 </div>
-
-
-<style>
-    body {
-    background-color: #FDF8F4;
-    font-family: 'Quattrocento', serif;
-    margin: 0;
-    padding: 0;
-}
-</style>
 {% endblock %}
