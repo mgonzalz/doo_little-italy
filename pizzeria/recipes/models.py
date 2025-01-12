@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Recipe(models.Model): # Info: https://developer.edamam.com/edamam-docs-recipe-api
     name = models.CharField(max_length=255)
-    image = models.URLField()
+    image = models.URLField(max_length=2000)
     healthLabels = models.TextField()
     cuisineType = models.TextField()
     calories = models.FloatField()
