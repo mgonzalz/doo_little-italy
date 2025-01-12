@@ -1,87 +1,121 @@
-/* summary.css */
-
+/* Estilos generales */
 body {
-    font-family: 'Quattrocento', serif;
-    background-color: #f9f9f9;
+    font-family: 'Quattrocento', serif; /* Cambiar a Quattrocento */
+    background-color: #FDF8F4; /* Cambiar el color de fondo */
     margin: 0;
     padding: 0;
+    color: #333;  
 }
 
-h1 {
+/* Contenedor principal */
+.summary-container {
+    max-width: 700px; /* Reducir el ancho */
+    margin: 40px auto; /* Reducir el margen superior */
+    padding: 25px; /* Reducir el padding interno */
+    background-color: #ffffff;
+    border-radius: 10px; /* Bordes más suaves */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
-    color: #333;
-    font-size: 36px;
-    margin-bottom: 20px;
+    line-height: 1.4; /* Reducir la altura de línea */
 }
 
+/* Título principal */
+.pizza-name {
+    font-size: 2.5em; /* Reducir el tamaño del título */
+    color: #2c3e50;
+    margin-bottom: 15px; /* Reducir el espacio inferior */
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* Estilo para las secciones (base, salsa, toppings) */
 p {
-    font-size: 18px;
-    color: #444;
-    margin: 10px 0;
-    text-align: center;
+    font-size: 1.1em; /* Reducir tamaño de fuente */
+    color: #555;
+    margin: 10px 0; /* Reducir márgenes */
+    font-weight: 400;
 }
 
 p strong {
-    color: #555;
-    font-weight: bold;
+    color: #34495e;
+    font-weight: 600;
 }
 
+/* Estilo para el precio */
+.summary-container p:last-child {
+    font-size: 1.3em; /* Reducir tamaño de la fuente del precio */
+    color: #27ae60;
+    font-weight: 700;
+    margin-top: 20px; /* Reducir el espacio superior */
+}
+
+/* Estilo para el formulario */
 form {
-    text-align: center;
-    margin-top: 20px;
+    margin-top: 20px; /* Reducir margen superior */
 }
 
-form .btn {
+form .btn-add-to-cart {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
+    width: 95%; /* Hacer el botón un 95% del ancho del contenedor */
+    padding: 12px 28px; /* Reducir el tamaño del botón */
+    font-size: 1.2em; /* Reducir tamaño de la fuente */
+    font-weight: 600;
     color: #fff;
-    background-color: #28a745;
+    background-color: #FF0000; /* Rojo */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
+    text-transform: none; /* Evitar que el texto esté en mayúsculas */
+    letter-spacing: 0.8px; /* Reducir el espaciado entre letras */
+    box-sizing: border-box;
 }
 
-form .btn:hover {
-    background-color: #218838;
+form .btn-add-to-cart:hover {
+    background-color: #cc0000; /* Rojo más oscuro */
+    transform: scale(1.05);
 }
 
-form .btn:active {
-    background-color: #1e7e34;
+form .btn-add-to-cart:active {
+    background-color: #e74c3c;
 }
 
-.container {
-    max-width: 600px;
-    margin: 30px auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+/* Bordes sutiles y separación de las secciones */
+.summary-container p strong {
+    font-weight: 600;
+    color: #34495e;
+    border-bottom: 2px solid #e67e22; /* Hacer la línea más fina */
+    padding-bottom: 5px; /* Reducir padding */
+    margin-bottom: 10px; /* Reducir margen inferior */
+    display: inline-block;
 }
 
-.container p {
-    margin-bottom: 15px;
+/* Agregar un toque de elegancia con sombras sutiles */
+.summary-container p {
+    text-align: left;
+    margin-bottom: 15px; /* Reducir margen inferior */
+    padding: 8px; /* Reducir el padding */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.container h1 {
-    margin-bottom: 30px;
-}
-
+/* Estilo para móviles y pantallas más pequeñas */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 28px;
+    .pizza-name {
+        font-size: 2.2em; /* Reducir tamaño en pantallas pequeñas */
     }
 
     p {
-        font-size: 16px;
+        font-size: 1em; /* Reducir el tamaño de las secciones */
     }
 
-    form .btn {
-        font-size: 16px;
-        padding: 8px 16px;
+    form .btn-add-to-cart {
+        font-size: 1.1em; /* Reducir tamaño del botón */
+        padding: 10px 25px; /* Reducir padding */
+    }
+
+    .summary-container {
+        width: 90%; /* Hacer el contenedor más estrecho en pantallas pequeñas */
     }
 }

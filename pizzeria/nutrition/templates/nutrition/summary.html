@@ -17,7 +17,8 @@
 
     <form method="post" action="{% url 'add_custom_pizza_to_cart' custom_pizza.id %}">
         {% csrf_token %}
-        <button type="submit" class="btn-add-to-cart">Add to Cart</button>
+        <button type="submit" class="btn-add-to-cart">Pedir</button>
     </form>
 </div>
 {% endblock %}
+
