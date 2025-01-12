@@ -69,7 +69,7 @@
         <div class="cart-summary">
             <h3>Total: ${{ total|floatformat:2 }}</h3>
             <form method="get" action="{% url 'checkout' %}">
-                <button type="submit" class="checkout-button">Checkout</button>
+                <button type="submit" class="checkout-button">Checkout with Stripe</button>
             </form>
         </div>
     {% else %}

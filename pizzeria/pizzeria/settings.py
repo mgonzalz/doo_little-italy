@@ -31,6 +31,8 @@ EDAMAM_FOOD_APP_ID = os.getenv('EDAMAM_FOOD_APP_ID', 'default-edamam-food-app-id
 EDAMAM_FOOD_APP_KEY = os.getenv('EDAMAM_FOOD_APP_KEY', 'default-edamam-food-app-key')
 EDAMAM_RECIPE_APP_ID = os.getenv('EDAMAM_RECIPE_APP_ID', 'default-edamam-recipe-app-id')
 EDAMAM_RECIPE_APP_KEY = os.getenv('EDAMAM_RECIPE_APP_KEY', 'default-edamam-recipe-app-key')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', 'default-stripe-public-key')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET', 'default-stripe-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'

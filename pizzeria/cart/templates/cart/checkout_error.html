@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Checkout Error{% endblock %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Quattrocento&display=swap" rel="stylesheet">
+
+<div class="error-container">
+    <h1>Something went wrong</h1>
+    <p class="error-message">
+        We encountered an issue during the checkout process. Please try again.
+    </p>
+
+    {% if error %}
+    <div class="error-details">
+        <p><strong>Error Details:</strong></p>
+        <p>{{ error }}</p>
+    </div>
+    {% endif %}
+
+    <a href="{% url 'cart_view' %}" class="go-back-btn">Go back to Cart</a>
+</div>
+
+
+<style>
+    body {
+    background-color: #FDF8F4;
+    font-family: 'Quattrocento', serif;
+    margin: 0;
+    padding: 0;
+}
+</style>
+{% endblock %}

@@ -3,8 +3,10 @@ from django.contrib.auth.decorators import login_required
 from .models import CartItem, Order, OrderItem
 from recipes.models import Recipe
 from nutrition.models import CustomPizza
-# Create your views here.
+import stripe
+from django.conf import settings
 
+# Create your views here.
 @login_required
 def cart_view(request):
     cart_items = CartItem.objects.filter(user=request.user)
@@ -51,29 +53,58 @@ def update_cart(request, cart_item_id):
     return redirect('cart_view')
 
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
 @login_required
 def checkout(request):
     cart_items = CartItem.objects.filter(user=request.user)
     if not cart_items:
         return redirect('cart_view')
 
+    # Crear el pedido antes de iniciar la sesión de Stripe
     order = Order.objects.create(user=request.user)
+
+    # Crear líneas de pedido para Stripe
+    line_items = []
     for item in cart_items:
         if item.recipe:
-            OrderItem.objects.create(
-                order=order,
-                recipe=item.recipe,
-                quantity=item.quantity
-            )
+            line_items.append({
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': item.recipe.name,
+                    },
+                    'unit_amount': int(item.recipe.price * 100),
+                },
+                'quantity': item.quantity,
+            })
+            OrderItem.objects.create(order=order, recipe=item.recipe, quantity=item.quantity)
         elif item.custom_pizza:
-            OrderItem.objects.create(
-                order=order,
-                recipe=None,
-                custom_pizza=item.custom_pizza,
-                quantity=item.quantity
-            )
-        item.delete()  # Vaciar el carrito.
-    return redirect('order_confirmation', order_id=order.id)
+            line_items.append({
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': item.custom_pizza.name,
+                    },
+                    'unit_amount': int(item.custom_pizza.price * 100),
+                },
+                'quantity': item.quantity,
+            })
+            OrderItem.objects.create(order=order, custom_pizza=item.custom_pizza, quantity=item.quantity)
+
+    # Crear la sesión de pago en Stripe
+    try:
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=line_items,
+            mode='payment',
+            success_url=request.build_absolute_uri(f'/cart/order/{order.id}/confirmation/'),
+            cancel_url=request.build_absolute_uri('/cart/'),
+        )
+        # Vaciar el carrito
+        cart_items.delete()
+        return redirect(checkout_session.url)
+    except Exception as e:
+        return render(request, 'cart/checkout_error.html', {'error': str(e)})
 
 @login_required
 def order_confirmation(request, order_id):
@@ -85,3 +116,7 @@ def order_confirmation(request, order_id):
 def order_history(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'cart/order_history.html', {'orders': orders})
+
+
+def checkout_error(request):
+    return render(request, 'cart/checkout_error.html')
