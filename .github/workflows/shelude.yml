@@ -59,14 +59,5 @@ jobs:
           DB_ENGINE: "django.db.backends.postgresql"
         run: |
           cd pizzeria
-          MIGRATION_OUTPUT=$(python manage.py migrate --noinput)
-          echo "$MIGRATION_OUTPUT"
-
-          # Comprobamos si se aplicaron migraciones.
-          if echo "$MIGRATION_OUTPUT" | grep -q "No migrations to apply."; then
-            echo "No hay nuevas migraciones, no se ejecutarán las importaciones."
-          else
-            # Si hubo migraciones, ejecuta las importaciones.
-            python manage.py import_nutrition
-            python manage.py import_recipes
-          fi
+          python manage.py import_nutrition
+          python manage.py import_recipes
