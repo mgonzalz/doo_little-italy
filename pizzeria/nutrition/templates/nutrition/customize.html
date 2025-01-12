@@ -51,10 +51,11 @@
 
             <!-- Sección derecha: toppings -->
             <div class="form-right">
-                <div class="section-title">
-                    <label for="toppings">Choose Toppings:</label>
-                    <span class="price-label">1€/gram</span>
+                <div class="section-title" style="display: flex; align-items: center;">
+                    <label for="toppings" style="width: 70%;">Choose Toppings:</label>
+                    <span class="price-label" style="margin-left: auto;">1€/gram</span>
                 </div>
+                
                 <div class="toppings-group">
                     {% for topping in toppings %}
                         <div class="topping-item">

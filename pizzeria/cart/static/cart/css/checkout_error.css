@@ -13,8 +13,8 @@ body {
 
 .error-container h1 {
     font-family: 'Averia Serif Libre', serif;
-    font-size: 2.5em;
-    color: #D9534F;
+    font-size: 3em;
+    color: #3C3C3C;
 }
 
 .error-message {
@@ -36,7 +36,8 @@ a.go-back-btn {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #FF0000 !important; /* Aseguramos que el color de fondo sea rojo */
+    background-color: #FF0000 !important;
+    font-size: 1.25rem;
     color: white;
     text-decoration: none;
     border-radius: 5px;
