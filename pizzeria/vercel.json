@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "pizzeria/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "pizzeria/wsgi.py"
+      }
+    ]
+}
