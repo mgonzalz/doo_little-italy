@@ -32,17 +32,17 @@ body {
     color: #D9534F;
 }
 
-.go-back-btn {
+a.go-back-btn {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #FF0000;
+    background-color: #FF0000 !important; /* Aseguramos que el color de fondo sea rojo */
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
 }
 
-.go-back-btn:hover {
-    background-color: #FF0000;
+a.go-back-btn:hover {
+    background-color: #CC0000; /* Un tono más oscuro cuando se pase el ratón */
 }
