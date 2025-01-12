@@ -38,6 +38,27 @@ Este proyecto fue desarrollado por **Claudia López** - [@clauloro](https://gith
     - Presentar recetas predefinidas con datos nutricionales y lista de ingredientes.
     - Ofrecer información detallada de cada pizza.
 
+## Proceso de Diseño con Figma y Diseño Estratégico.
+Para garantizar un desarrollo estructurado y eficiente de la página web, se ha utilizado **Figma** como herramienta principal para la planificación y diseño previo al desarrollo. Este proceso estratégico incluye varias etapas clave que aseguran un resultado alineado con los objetivos y necesidades del proyecto:
+
+- **Design Thinking.** Se establecieron objetivos claros para el diseño, como la mejora de la experiencia de usuario, una navegación intuitiva, y un enfoque visual que refleje la esencia de la pizzería.
+
+<div align="center">
+  <img src="designs/design-thinking.jpg" alt="Design Thinking" width="400">
+</div>
+
+- **APIs Venn Diagram**: Antes de comenzar el desarrollo, se creó un diagrama de Venn que resume las funciones de las APIs integradas (como la de recetas, nutrición y base de datos de alimentos). Este análisis permitió entender las fortalezas y áreas de convergencia de cada API, asegurando su implementación efectiva.
+<div align="center">
+  <img src="designs/venn-diagram.jpg" alt="Venn Diagram" width="400">
+</div>
+
+- **Sitemap.** Se elaboró un sitemap para organizar de forma eficiente las páginas de la aplicación. Este documento identifica cuáles son páginas públicas (accesibles a todos los usuarios) y cuáles son privadas (reservadas para usuarios con cuenta). Esta organización asegura una estructura lógica y fácil de navegar.
+- **Wireframe y Design System.** A partir del **Sitemap**, se diseñó un **Wireframe** que actúa como un esquema básico de la futura página web. Este documento incluyó un **Design System** con pautas claras de diseño, como tipografías, colores, y estilos visuales, para asegurar consistencia y profesionalismo en la apariencia final.
+- **Prototipo Final en Figma.** Tras completar estos, se generó un prototipo interactivo que simula la experiencia de la página web final. Este prototipo proporcionó una visión tangible del producto.
+- **Uso de Builder.io.** Con el prototipo finalizado, se utilizó **Builder.io** para trasladar los diseños de Figma a HTML y CSS. Esta herramienta permitió una conversión profesional, asegurando una representación precisa del diseño en el entorno web.
+
+Toda la documentación relacionada con estos pasos, incluidas las imágenes, diagramas, y prototipos, se encuentra organizada en la carpeta `designs` del proyecto.
+
 ## Integración Continua con GitHub Actions.
 El proyecto incorpora **pipelines de integración continua** configurados mediante **GitHub Actions**. Estos pipelines automatizan la tarea de actualización de la base de datos mediante la API de **Edamam**, asegurando que los datos relacionados con recetas e ingredientes se mantengan actualizados periódicamente. La frecuencia de ejecución de estos pipelines está definida en los archivos de configuración de los workflows, dentro del repositorio.
 
