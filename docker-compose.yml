@@ -2,12 +2,14 @@ version: '3.9'
 
 services:
   django:
+    build:
+      context: .
+      dockerfile: devops/Dockerfile
     image: pizzeria:0.0.1
-    build: .
     ports:
-      - "8080:8080"  # Mapeo del puerto, no modificar
+      - "8080:8080"
     env_file:
-      - pizzeria/.env  # Cargar variables de entorno desde el archivo .env
+      - pizzeria/.env
     volumes:
-      - .:/app  # Mapear el código local al contenedor para desarrollo
+      - .:/app
     command: ["python", "pizzeria/manage.py", "runserver", "0.0.0.0:8080"]
